@@ -20,9 +20,6 @@ Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
 
 
-
-
-
 //Rutas de ADMINISTRADOR
 //usuarios CRUD
 
