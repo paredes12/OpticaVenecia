@@ -13,7 +13,16 @@ class DetalleVenta extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('Detalle_venta',function(Blueprint $table){
+            $table->bigIncrements('id');
+            $table->integer('cantidad_articulo');
+            $table->float('precio_unitario');
+            $table->float('subtotal');
+            $table->unsignedBigInteger('venta_id');
+            $table->foreign('venta_id')->references('id')->on('Venta');
+            $table->unsignedBigInteger('articulo_id');
+            $table->foreign('articulo_id')->references('id')->on('Articulo');
+        });
     }
 
     /**
@@ -23,6 +32,6 @@ class DetalleVenta extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('Detalle_venta');
     }
 }

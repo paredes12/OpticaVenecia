@@ -13,7 +13,12 @@ class ArticuloConstanciaVisual extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('Articulo_Constancia_visual',function(Blueprint $table){
+            $table->unsignedBigInteger('articulo_id');
+            $table->foreign('articulo_id')->references('id')->on('Articulo');
+            $table->unsignedBigInteger('constancia_visual_id');
+            $table->foreign('constancia_visual_id')->references('id')->on('Constancia_visual');
+        });
     }
 
     /**
@@ -23,6 +28,6 @@ class ArticuloConstanciaVisual extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('Articulo_Constancia_visual');
     }
 }

@@ -13,7 +13,12 @@ class ProteccionRecomendado extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('Proteccion_recomendado',function(Blueprint $table){
+            $table->bigIncrements('id');
+            $table->string('nombre_proteccion_recomendado');
+            $table->unsignedBigInteger('constancia_visual_id');
+            $table->foreign('constancia_visual_id')->references('id')->on('Constancia_visual');
+        });
     }
 
     /**
@@ -23,6 +28,6 @@ class ProteccionRecomendado extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('Proteccion_recomendado');
     }
 }

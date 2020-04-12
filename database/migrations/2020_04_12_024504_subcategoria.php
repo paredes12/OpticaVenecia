@@ -16,6 +16,8 @@ class Subcategoria extends Migration
         Schema::create('Subcategoria', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nombre_subcategoria');
+            $table->unsignedBigInteger('categoria_id');
+            $table->foreign('categoria_id')->references('id')->on('Categoria');
         });
     }
 

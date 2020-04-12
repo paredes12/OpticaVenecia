@@ -13,7 +13,15 @@ class Articulo extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('Articulo', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('marca_articulo');
+            $table->string('descripcion');
+            $table->float('precio_articulo');
+            $table->integer('cantidad');
+            $table->unsignedBigInteger('subcategoria_id');
+            $table->foreign('subcategoria_id')->references('id')->on('Subcategoria');
+        });
     }
 
     /**
@@ -23,6 +31,6 @@ class Articulo extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('Articulo');
     }
 }

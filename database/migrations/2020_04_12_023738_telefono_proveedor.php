@@ -13,7 +13,12 @@ class TelefonoProveedor extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('Telefono_proveedor', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('proveedor',20);
+            $table->unsignedBigInteger('proveedor_id');
+            $table->foreign('proveedor_id')->references('id')->on('Proveedor');
+        });
     }
 
     /**
@@ -23,6 +28,6 @@ class TelefonoProveedor extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('Telefono_proveedor');
     }
 }

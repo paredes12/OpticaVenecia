@@ -13,7 +13,14 @@ class Empleado extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('Empleado',function(Blueprint $table){
+            $table->bigIncrements('id');
+            $table->string('nombre_empleado',32);
+            $table->string('apellido_empleado',32);
+            $table->float('salario_base');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+        });
     }
 
     /**
@@ -23,6 +30,6 @@ class Empleado extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('Empleado');
     }
 }

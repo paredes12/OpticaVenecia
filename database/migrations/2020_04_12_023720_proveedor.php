@@ -13,7 +13,15 @@ class Proveedor extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('Proveedor', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('proveedor',32);
+            $table->string('registro_proveedor',16);
+            $table->string('correo_proveedor',32);
+            $table->string('direccion_proveedor',32);
+            $table->unsignedBigInteger('pais_id');
+            $table->foreign('pais_id')->references('id')->on('Pais');
+        });
     }
 
     /**
@@ -23,6 +31,6 @@ class Proveedor extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('Proveedor');
     }
 }

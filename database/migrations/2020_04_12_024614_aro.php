@@ -13,7 +13,13 @@ class Aro extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('Aro', function (Blueprint $table) {
+            $table->string('tamano_aro');
+            $table->unsignedBigInteger('articulo_id');
+            $table->foreign('articulo_id')->references('id')->on('Articulo');
+            $table->unsignedBigInteger('color_aro_id');
+            $table->foreign('color_aro_id')->references('id')->on('Color_aro');
+        });
     }
 
     /**
@@ -23,6 +29,6 @@ class Aro extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('Aro');
     }
 }

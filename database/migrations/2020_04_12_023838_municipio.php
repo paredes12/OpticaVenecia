@@ -16,6 +16,8 @@ class Municipio extends Migration
         Schema::create('Municipio', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nombre_municipio');
+            $table->unsignedBigInteger('departamento_id');
+            $table->foreign('departamento_id')->references('id')->on('Departamento');
         });
     }
 

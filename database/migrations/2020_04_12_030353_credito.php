@@ -13,7 +13,17 @@ class Credito extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('Credito',function(Blueprint $table){
+            $table->bigIncrements('id');
+            $table->date('fecha_inicio');
+            $table->date('fecha_fin');
+            $table->string('monto_en_letra',256);
+            $table->float('monto');
+            $table->float('valor_cuota');
+            $table->string('detalle_promocion',256);
+            $table->unsignedBigInteger('tipo_cuota_id');
+            $table->foreign('tipo_cuota_id')->references('id')->on('Tipo_cuota');
+        });
     }
 
     /**
@@ -23,6 +33,6 @@ class Credito extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('Credito');
     }
 }

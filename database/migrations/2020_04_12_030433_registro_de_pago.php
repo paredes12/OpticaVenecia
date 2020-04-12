@@ -13,7 +13,16 @@ class RegistroDePago extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('Registro_de_pago',function(Blueprint $table){
+            $table->bigIncrements('id');
+            $table->date('fecha_registro_pago');
+            $table->float('cargo_registro_pago');
+            $table->float('abono_registro_pago');
+            $table->float('resta_registro_pago');
+            $table->unsignedBigInteger('credito_id');
+            $table->foreign('credito_id')->references('id')->on('Credito');
+        });
+
     }
 
     /**
@@ -23,6 +32,6 @@ class RegistroDePago extends Migration
      */
     public function down()
     {
-        //
+       Schema::drop('Registro_de_pago');
     }
 }
