@@ -13,7 +13,10 @@ class Subcategoria extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('Subcategoria', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('nombre_subcategoria');
+        });
     }
 
     /**
@@ -23,6 +26,6 @@ class Subcategoria extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('Subcategoria');
     }
 }

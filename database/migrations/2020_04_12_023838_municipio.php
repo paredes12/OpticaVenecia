@@ -13,7 +13,10 @@ class Municipio extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('Municipio', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('nombre_municipio');
+        });
     }
 
     /**
@@ -23,6 +26,6 @@ class Municipio extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('Municipio');
     }
 }

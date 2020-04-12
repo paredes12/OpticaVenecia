@@ -13,7 +13,10 @@ class Parentesco extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('Parentesco', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('nombre_parentesco');
+        });
     }
 
     /**
@@ -23,6 +26,6 @@ class Parentesco extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('Parentesco');
     }
 }
