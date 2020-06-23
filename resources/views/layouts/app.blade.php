@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'OpticaVenecia') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -40,18 +40,19 @@
           
           
               <a id="navbarDropdown" class="nav-link dropdown-toggle admin" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-              {{ __('Administrar') }} <span class="caret"></span>
+              {{ Auth::user()->name }} <span class="caret"></span>
               </a>
 
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="{{ route('logout') }}"
-                  onclick="event.preventDefault();
-                  document.getElementById('logout-form').submit();">
+              @role('super_admin')
+                <a class="dropdown-item" href="{{ route('adminPermisos') }}">
                   {{ __('Permisos') }}
-                </a>
+                </a>                            
                 <a class="dropdown-item" href="{{ route('crearUsuario') }}">
                   {{ __('Crear usuario') }}
                 </a>
+              @endrole  
+                         
                 <a class="dropdown-item" href="{{ route('logout') }}"
                   onclick="event.preventDefault();
                   document.getElementById('logout-form').submit();">

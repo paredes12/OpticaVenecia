@@ -19,4 +19,15 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 
-Route::get('/crearUsuario','userController@crearUsuario')->name('crearUsuario');
+
+Route::group(['middleware' => ['role:super_admin']], function () {    
+    Route::get('/crearUsuario','userController@crearUsuario')->name('crearUsuario');
+});
+
+Route::group(['middleware' => ['role:super_admin']], function () {    
+    Route::get('/adminPermisos','userController@administrarPermisos')->name('adminPermisos');
+});
+
+Route::group(['middleware' => ['role:super_admin']], function () {    
+    Route::get('/permisos','RolController@getRoles')->name('permisos');
+});

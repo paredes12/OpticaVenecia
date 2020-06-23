@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use DB;
+use App\roles;
 use Illuminate\Http\Request;
 
 class userController extends Controller
@@ -23,6 +25,14 @@ class userController extends Controller
      */
     public function crearUsuario()
     {
-        return view('crearUsuario');
+        $roles=roles::all();     
+        return view('layouts.crudUsuario.crearUsuario',compact('roles'));
     }
+    
+    public function administrarPermisos()
+    {
+        return view('layouts.crudUsuario.permisos');
+    }
+
+    
 }

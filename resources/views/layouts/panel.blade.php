@@ -66,9 +66,7 @@
       </div>
     </nav>  
     <div>
-    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
-    <h2>Reporte estadistico de ventas</h2>
-    <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart" width="791" height="333" style="display: block; width: 791px; height: 333px;"></canvas>  
+    
     @yield('contenido')
     </main>
     </div>  
