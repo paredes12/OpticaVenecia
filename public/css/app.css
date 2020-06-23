@@ -180,6 +180,11 @@ a:hover {
   text-decoration: underline;
 }
 
+a:admin {
+  color: #000000;
+  text-decoration: underline;
+}
+
 a:not([href]) {
   color: inherit;
   text-decoration: none;
@@ -4438,6 +4443,11 @@ input[type=button].btn-block {
 .nav-link {
   display: block;
   padding: 0.5rem 1rem;
+  
+}
+
+.admin{
+  color: #ffffff;
 }
 
 .nav-link:hover,
@@ -7032,7 +7042,7 @@ button.bg-light:focus {
 }
 
 .bg-dark {
-  background-color: #343a40 !important;
+  background-color: #1166bb !important;
 }
 
 a.bg-dark:hover,

@@ -18,6 +18,8 @@ class Venta extends Migration
             $table->date('fecha_venta');       
             $table->unsignedBigInteger('empleado_id');
             $table->foreign('empleado_id')->references('id')->on('Empleado'); 
+            $table->unsignedBigInteger('cita_entrega_lente_id');
+            $table->foreign('cita_entrega_lente_id')->references('id')->on('Cita_entrega_lente');
         });
     }
 
