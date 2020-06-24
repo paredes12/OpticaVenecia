@@ -74,7 +74,7 @@
                                 @endforeach
                               </select>
                               <div>
-                              <a href="{{ route('crearUsuarioView') }}">Crear nuevo rol</a>
+                              <a href="{{ route('adminPermisos') }}">Crear nuevo rol</a>
                             </div>
                           </div>
                           </div>

@@ -44,24 +44,28 @@ class userController extends Controller
         $nuevoUsuario->name=$request->name;
         $nuevoUsuario->email=$request->email;
         //$nuevoUsuario->email_verified_at=$request->email_verified_at;
-        $nuevoUsuario->password=$request->password;
+        $nuevoUsuario->password=bcrypt($request->password);
         //$nuevoUsuario->remember_token=$request->remember_token;
         $nuevoUsuario->created_at=$mytime->toDateTimeString();
         $nuevoUsuario->updated_at=$mytime->toDateTimeString();
-        $nuevoUsuario->save();
-        //return back()->with('mensaje','Usuario creado');  
-     
-        $nuevoRol=new model_has_roles;
-        $nuevoRol->role_id=$request->model_id;
-        $nuevoRol->model_type='App\User';
-        $nuevoRol->model_id=$idUsuario->id+1;
-        $nuevoRol->save();
-        return $nuevoRol->all();      
+        $nuevoUsuario->save();            
+        
+        $this->model_has_roles($request->model_id, 'App\User',$nuevoUsuario->id);
+        return back()->with('mensaje','Usuario creado');  
     }
 
+
+    public function model_has_roles($role_id, $model_type, $model_id){
+        $nuevoRol=new \App\model_has_roles;
+        $nuevoRol->role_id=$role_id;
+        $nuevoRol->model_type=$model_type;
+        $nuevoRol->model_id=$model_id;
+        $nuevoRol->save();
+        return $nuevoRol->all();
+    }
     public function administrarPermisos()
-    {
-        return view('layouts.crudUsuario.permisos');
+    {   $users=User::all();
+        return view('layouts.crudUsuario.permisos',compact('users'));
     }
 
     

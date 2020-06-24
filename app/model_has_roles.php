@@ -6,5 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class model_has_roles extends Model
 {
+    public $timestamps = false;    
     //
 }

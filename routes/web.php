@@ -35,3 +35,4 @@ Route::group(['middleware' => ['role:super_admin']], function () {
 Route::group(['middleware' => ['role:super_admin']], function () {    
     Route::post('/','userController@crearUsuario')->name('crearUsuario');
 });
+
