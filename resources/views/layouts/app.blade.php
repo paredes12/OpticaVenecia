@@ -46,7 +46,7 @@
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
               @role('super_admin')
                 <a class="dropdown-item" href="{{ route('adminPermisos') }}">
-                  {{ __('Permisos') }}
+                  {{ __('Usuario') }}
                 </a>                            
                 <a class="dropdown-item" href="{{ route('crearUsuarioView') }}">
                   {{ __('Crear usuario') }}

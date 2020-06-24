@@ -19,20 +19,29 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 
-//usuarios CRUD
-Route::group(['middleware' => ['role:super_admin']], function () {    
-    Route::get('/crearUsuario','userController@crearUsuarioView')->name('crearUsuarioView');
-});
 
-Route::group(['middleware' => ['role:super_admin']], function () {    
-    Route::get('/adminPermisos','userController@administrarPermisos')->name('adminPermisos');
-});
+
+
+
+//Rutas de ADMINISTRADOR
+//usuarios CRUD
 
 Route::group(['middleware' => ['role:super_admin']], function () {    
     Route::get('/permisos','RolController@getRoles')->name('permisos');
+    Route::get('/usuarios','userController@administrarPermisos')->name('adminPermisos');
+    //crud usuarios vistas
+    Route::get('/crearUsuario','userController@crearUsuarioView')->name('crearUsuarioView');
+    //Route::get('/editarUsuario','userController@editarUsuarioView')->name('editarUsuarioView');    
+    Route::get('/editarUsuario/{id}','userController@editarUsuarioView')->name('editarUsuarioView');
 });
 
+
+//request crud usuario
+
 Route::group(['middleware' => ['role:super_admin']], function () {    
-    Route::post('/','userController@crearUsuario')->name('crearUsuario');
+        
+    Route::post('/editUser','userController@editarUsuario')->name('editarUsuario');
+    Route::post('/createUser','userController@crearUsuario')->name('crearUsuario');
+    
 });
 

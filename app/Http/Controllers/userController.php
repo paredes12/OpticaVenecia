@@ -67,6 +67,16 @@ class userController extends Controller
     {   $users=User::all();
         return view('layouts.crudUsuario.permisos',compact('users'));
     }
-
-    
+    public function editarUsuarioView($id)
+    {
+        $roles=roles::all(); 
+        $usuario=new user;            
+        $usuario=DB::table('users')->where('id',$id)->first();
+        return view('layouts.crudUsuario.editarUsuario',compact('usuario','roles'));
+       return $usuario->id." ".$usuario->name;
+    }
+    public function editarUsuario(Request $request)
+    {
+        
+    }
 }
