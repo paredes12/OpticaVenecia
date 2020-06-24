@@ -5,14 +5,15 @@
     <div class="row justify-content-center" style="margin-left: 150px;width:900px">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Crear usuario') }}</div>
+                <div class="card-header">{{ __('Usuarios') }}</div>                
                     <table class="table">
-                    <thead>
+                    <thead  style="background-color: #1166bb;color: #ffff;" >
                         <tr>
                         <th scope="col">id</th>
-                        <th scope="col">name</th>
-                        <th scope="col">email</th>
-                        
+                        <th scope="col">nombre</th>
+                        <th scope="col">correo</th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -22,11 +23,14 @@
                         <th scope="row">{{$row->id}}</th>
                         <td>{{$row->name}}</td>
                         <td>{{$row->email}}</td>
+                        <td><button type="button" class="btn btn-primary">Actualizar</button></td>    
+                        <td><button type="button" class="btn btn-danger">Eliminar</button></td> 
                         </tr>
                         @endforeach      
                         
                     </tbody>
                     </table>
+               
                 </div>
             </div>
         </div>
