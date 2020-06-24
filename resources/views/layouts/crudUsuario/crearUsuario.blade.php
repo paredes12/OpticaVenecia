@@ -6,12 +6,16 @@
     <div class="row justify-content-center" style="margin-left: 150px;width:900px">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+                <div class="card-header">{{ __('Crear usuario') }}</div>
 
                 <div class="card-body">
-                    <form method="POST"  action="{{ route('register') }}">
+                    <form method="POST"  action="{{ route('crearUsuario') }}">
                         @csrf
-
+                        @if(session('mensaje'))
+                          <div class="alert alert-success">
+                            {{session('mensaje')}}
+                          </div>
+                        @endif
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nombre') }}</label>
 
@@ -56,25 +60,21 @@
 
                         <div class="form-group row">
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirmar contraseña') }}</label>
-
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
-                        </div>
+                        </div>                      
                         <div class="form-group row">
                           <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Rol') }}</label>
-                          <div class="col-md-6">
-                          <div class="dropdown">
-                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Seleccionar un rol
-                              </button>
-                              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                              @foreach($roles as $row)
-                                <a class="dropdown-item" href="#">{{$row->name}}</a>
-                              @endforeach
-                            </div>
-                            <div>
-                              <a href="{{ route('crearUsuario') }}">Crear nuevo rol</a>
+                          <div class="col-md-6">                             
+                          <div class="form-group">                              
+                              <select multiple class="form-control" name="model_id" id="exampleFormControlSelect2">
+                                @foreach($roles as $row)
+                                  <option value={{$row->id}}>{{$row->name}}</option>
+                                @endforeach
+                              </select>
+                              <div>
+                              <a href="{{ route('crearUsuarioView') }}">Crear nuevo rol</a>
                             </div>
                           </div>
                           </div>

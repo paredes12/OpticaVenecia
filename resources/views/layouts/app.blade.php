@@ -48,7 +48,7 @@
                 <a class="dropdown-item" href="{{ route('adminPermisos') }}">
                   {{ __('Permisos') }}
                 </a>                            
-                <a class="dropdown-item" href="{{ route('crearUsuario') }}">
+                <a class="dropdown-item" href="{{ route('crearUsuarioView') }}">
                   {{ __('Crear usuario') }}
                 </a>
               @endrole  

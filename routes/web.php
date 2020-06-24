@@ -19,9 +19,9 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 
-
+//usuarios CRUD
 Route::group(['middleware' => ['role:super_admin']], function () {    
-    Route::get('/crearUsuario','userController@crearUsuario')->name('crearUsuario');
+    Route::get('/crearUsuario','userController@crearUsuarioView')->name('crearUsuarioView');
 });
 
 Route::group(['middleware' => ['role:super_admin']], function () {    
@@ -30,4 +30,8 @@ Route::group(['middleware' => ['role:super_admin']], function () {
 
 Route::group(['middleware' => ['role:super_admin']], function () {    
     Route::get('/permisos','RolController@getRoles')->name('permisos');
+});
+
+Route::group(['middleware' => ['role:super_admin']], function () {    
+    Route::post('/','userController@crearUsuario')->name('crearUsuario');
 });
