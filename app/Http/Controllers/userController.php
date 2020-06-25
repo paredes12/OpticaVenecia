@@ -31,7 +31,6 @@ class userController extends Controller
         $roles=roles::all();     
         return view('layouts.crudUsuario.crearUsuario',compact('roles'));
     }
-    
     public function crearUsuario(Request $request)
     {
         $mytime = Carbon\Carbon::now();        
@@ -53,9 +52,8 @@ class userController extends Controller
         $this->model_has_roles($request->model_id, 'App\User',$nuevoUsuario->id);
         return back()->with('mensaje','Usuario creado');  
     }
-
-
-    public function model_has_roles($role_id, $model_type, $model_id){
+    public function model_has_roles($role_id, $model_type, $model_id)
+    {
         $nuevoRol=new \App\model_has_roles;
         $nuevoRol->role_id=$role_id;
         $nuevoRol->model_type=$model_type;
@@ -64,7 +62,8 @@ class userController extends Controller
         return $nuevoRol->all();
     }
     public function administrarPermisos()
-    {   $users=User::all();
+    {   
+        $users=User::where('active',1)->get();
         return view('layouts.crudUsuario.permisos',compact('users'));
     }
     public function editarUsuarioView($id)
@@ -73,10 +72,34 @@ class userController extends Controller
         $usuario=new user;            
         $usuario=DB::table('users')->where('id',$id)->first();
         return view('layouts.crudUsuario.editarUsuario',compact('usuario','roles'));
-       return $usuario->id." ".$usuario->name;
+       //return $usuario->id." ".$usuario->name;
     }
-    public function editarUsuario(Request $request)
+    public function editarUsuario(Request $request, $id)
     {
+        $mytime = Carbon\Carbon::now();                
+        //return $request->all();
+        $idUsuario=new user;
+        $idUsuario::where('id',$id)->update(['name'=>$request->name,
+                            'email'=>$request->email,
+                            'password'=>bcrypt($request->password),
+                            'updated_at'=>$mytime->toDateTimeString()]);
+                
         
+        $rol=new model_has_roles;
+        $rol::where('model_id',$id)->update(['role_id'=>$request->role_id,
+                    ]);                
+        return redirect()->route('home')->with('mensaje','Usuario actualizado');        
     }
+    public function desactivarUsuario($id){
+        $mytime = Carbon\Carbon::now();                
+        //return $request->all();
+        
+        $user= User::find($id);
+        $user->active = 0;
+        $user->updated_at=$mytime->toDateTimeString();
+        $user->update();     
+           
+        return redirect()->route('home')->with('mensaje','Usuario desactivado');                  
+    }
+    
 }

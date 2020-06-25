@@ -33,6 +33,8 @@ Route::group(['middleware' => ['role:super_admin']], function () {
     Route::get('/crearUsuario','userController@crearUsuarioView')->name('crearUsuarioView');
     //Route::get('/editarUsuario','userController@editarUsuarioView')->name('editarUsuarioView');    
     Route::get('/editarUsuario/{id}','userController@editarUsuarioView')->name('editarUsuarioView');
+    
+    
 });
 
 
@@ -40,8 +42,24 @@ Route::group(['middleware' => ['role:super_admin']], function () {
 
 Route::group(['middleware' => ['role:super_admin']], function () {    
         
-    Route::post('/editUser','userController@editarUsuario')->name('editarUsuario');
+    Route::post('/editUser/{id}','userController@editarUsuario')->name('editarUsuario');
     Route::post('/createUser','userController@crearUsuario')->name('crearUsuario');
-    
+    Route::get('/permisos/{id}','userController@desactivarUsuario')->name('desactivarUsuario');
 });
 
+
+//RUTAS ADMINISTRADOR
+//roles CRUD
+Route::group(['middleware' => ['role:super_admin']], function () { 
+    Route::get('/adminRoles','RolController@adminRoles')->name('adminRoles');
+    Route::get('/editarRole/{id}','RolController@editarRoleView')->name('editarRolesView');
+    Route::get('/crearRol','RolController@crearRoleView')->name('crearRolView');
+
+ });
+
+ //request crud roles
+ Route::group(['middleware' => ['role:super_admin']], function () { 
+    Route::get('/eliminarRole','RolController@eliminarRole')->name('eliminarRole');
+    Route::post('/createRol','RolController@crearRole')->name('crearRole');
+    Route::post('/editRol/{id}','RolController@editarRole')->name('editarRol');
+});

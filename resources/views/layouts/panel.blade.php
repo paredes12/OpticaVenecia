@@ -3,6 +3,11 @@
 @section('content')
 <div class="container-fluid">
   <div class="row">
+    @if(session('mensaje'))
+      <div class="alert alert-success" style="width:100%;">
+        {{session('mensaje')}}
+      </div>
+    @endif
     <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
       <div class="sidebar-sticky pt-3">
         <ul class="nav flex-column">

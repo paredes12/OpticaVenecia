@@ -25,7 +25,7 @@
                         <td>{{$row->name}}</td>
                         <td>{{$row->email}}</td>
                         <td><button name="id" type="submit" value="{{$row->id}}" class="btn btn-primary" onClick="location.href='{{route('editarUsuarioView',['id'=>$row->id])}}'">Editar</button></td>    
-                        <td><button name="id" type="submit" value="{{$row->id}}" class="btn btn-danger">Eliminar</button></td> 
+                        <td><button name="id" type="submit" value="{{$row->id}}" class="btn btn-danger" onClick="location.href='{{route('desactivarUsuario',['id'=>$row->id])}}'" onClick="return confirm('¿Esta seguro de que desea desactivar este usuario?')">Desactivar</button></td> 
                         </tr>
                         @endforeach      
                         
