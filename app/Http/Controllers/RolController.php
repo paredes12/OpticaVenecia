@@ -85,4 +85,11 @@ class RolController extends Controller
                       
         return redirect()->route('home')->with('mensaje','Rol actualizado'); 
     }
+    public function eliminarRole($id){
+        $mytime = Carbon\Carbon::now();                                
+        $rol= roles::find($id);       
+        $rol->delete();     
+           
+        return redirect()->route('adminPermisos')->with('mensaje','Role eliminado');           
+    }
 }
