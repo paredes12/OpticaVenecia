@@ -30,6 +30,10 @@ class RolController extends Controller
         return view('layouts.crudUsuario.editarUsuario',compact('rol'));
        //return $usuario->id." ".$usuario->name;
     }
+    public function addPermission($id, $permissions){        
+        $rol=roles::find($id);
+
+    }
     public function crearRole(Request $request)
     {
         //$permisos=[];
@@ -68,22 +72,43 @@ class RolController extends Controller
         $permissions=permissions::all();     
         return view('layouts.crudRoles.crearRoles',compact('permissions'));    
     }
-    public function editarRoleView($id){
-        $permisos=permissions::where('id',$id)->get(); 
+    public function editarRoleView($id){    
+        $permission_id=[];
+        $activos=role_has_permissions::where('role_id',$id)->get();
+        foreach($activos as $row){
+            array_push($permission_id,$row->permission_id);
+        }
+        $allPermission=permissions::whereNotIn('id',$permission_id)->get();
+        
+        //$role_has_permissions=role_has_permissions::whereIn('role_id',$id)->get(); 
+        $permisos = DB::table('role_has_permissions')
+            ->join('permissions', 'permissions.id', '=', 'role_has_permissions.permission_id')            
+            ->where('role_id',$id)
+            ->get();
+
+        //$permisos=permissions::where('id',$id)->get();
         $rol=new roles;            
         $rol=DB::table('roles')->where('id',$id)->first();
-        return view('layouts.crudRoles.editarRoles',compact('rol','permisos'));
+        return view('layouts.crudRoles.editarRoles',compact('rol','permisos','allPermission'));
+        //return $permisos;
     }
     public function editarRole(Request $request,$id)
     {
                 
-        $mytime = Carbon\Carbon::now();                
-        //return $request->all();
-        $idRol=new roles;
-        $idRol::where('id',$id)->update(['name'=>$request->name,                           
-                            'updated_at'=>$mytime->toDateTimeString()]);                                
-                      
-        return redirect()->route('home')->with('mensaje','Rol actualizado'); 
+        if(!($request->has('permission_id'))){
+            $mytime = Carbon\Carbon::now();                
+            //return $request->all();
+            $idRol=new roles;
+            $idRol::where('id',$id)->update(['name'=>$request->name,                           
+                                'updated_at'=>$mytime->toDateTimeString()]); 
+            return redirect()->route('editarRolesView',$id)->with('mensaje','Rol actualizado'); 
+        }                
+        else{
+            foreach($request->permission_id as $permiso){
+                $this->role_has_permissions($permiso, $id);                
+            }
+            return redirect()->route('editarRolesView',$id)->with('mensaje','Permiso agregado'); 
+        }                             
     }
     public function eliminarRole($id){
         $mytime = Carbon\Carbon::now();                                
@@ -92,4 +117,11 @@ class RolController extends Controller
            
         return redirect()->route('adminPermisos')->with('mensaje','Role eliminado');           
     }
+    public function eliminarPermiso($role_id,$permission_id)
+    {
+        $permiso=role_has_permissions::where("permission_id",$permission_id)
+        ->where('role_id',$role_id);
+        $permiso->delete();
+        return redirect()->route('editarRolesView',$role_id)->with('mensaje','Permiso eliminado'); 
+    }    
 }

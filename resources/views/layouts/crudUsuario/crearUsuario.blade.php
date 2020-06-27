@@ -71,7 +71,7 @@
                         <div class="form-group row">
                           <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Rol') }}</label>
                           <div class="col-md-6">                             
-                          <div class="form-group">                              
+                            <div class="form-group">                              
                               <select class="form-control" name="model_id" id="exampleFormControlSelect2">
                                 @foreach($roles as $row)
                                   <option value="{{$row->id}}">{{$row->name}}</option>
@@ -85,7 +85,7 @@
                         </div>
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <a style="color:#ffff;" onclick="goBack()" class="btn btn-danger">
+                                <a style="color:#ffff;" href="{{route('adminPermisos')}}" class="btn btn-danger">
                                     {{ __('Cancelar') }}
                                 </a>
                                 <script>

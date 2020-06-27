@@ -1,11 +1,7 @@
 @extends('layouts.panel')
 
 @section('contenido')
-@if(session('mensaje'))
-      <div class="alert alert-success" style="width:100%;">
-        {{session('mensaje')}}
-      </div>
-    @endif
+
 <div class="container" >
     <div class="row justify-content-center" style="margin-left: 150px;width:900px">
         <div class="col-md-8">
@@ -51,7 +47,7 @@
                         </div>
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <a style="color:#ffff;" onclick="goBack()" class="btn btn-danger">
+                                <a style="color:#ffff;" href="{{route('adminRoles')}}" class="btn btn-danger">
                                     {{ __('Cancelar') }}
                                 </a>
                                 <script>

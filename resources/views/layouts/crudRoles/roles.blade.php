@@ -11,22 +11,21 @@
         <div class="col-md-8">
             <div class="card">
             
-            <div class="card-header">{{ __('Roles') }}
-                    
-                </div>                                 
+                    <div class="card-header">{{ __('Roles') }}
+                        <a style="color: rgb(255, 255, 255);width: 100px;text-align: right;margin-left: 340px;" onClick="location.href='{{route('crearRolView')}}'" class="btn btn-primary">
+                            {{ __('Agregar rol') }}
+                        </a> 
+                    </div>                                                           
                     <table class="table">
                     <thead  style="background-color: #1166bb;color: #ffff;" >
                         <tr>
                         <th scope="col">id</th>
                         <th scope="col">nombre</th>                        
-                        <th scope="col"></th>
+                        
                         <th style="text-align:left;" scope="col">
-                            <div  class="col-md-6 offset-md-4">
-                                <a style="color:#ffff;" onClick="location.href='{{route('crearRolView')}}'" class="btn btn-primary">
-                                    {{ __('+') }}
-                                </a>        
-                            </div>  
+                              
                         </th>
+                        <th scope="col"></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -36,7 +35,7 @@
                         <th scope="row">{{$row->id}}</th>
                         <td>{{$row->name}}</td>                        
                         <td><button name="id" type="submit" value="{{$row->id}}" class="btn btn-primary" onClick="location.href='{{route('editarRolesView',['id'=>$row->id])}}'">Editar</button></td>    
-                        <td><button name="id" type="submit" value="{{$row->id}}" class="btn btn-danger" onClick="location.href='{{route('eliminarRole',['id'=>$row->id])}}'" onClick="return confirm('¿Esta seguro de que desea desactivar este usuario?')">Desactivar</button></td> 
+                        <td><button name="id" type="submit" value="{{$row->id}}" class="btn btn-danger" onClick="location.href='{{route('eliminarRole',['id'=>$row->id])}}'" onClick="return confirm('¿Esta seguro de que desea desactivar este usuario?')">Eliminar</button></td> 
                         </tr>
                         @endforeach      
                         
