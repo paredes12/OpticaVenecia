@@ -44,15 +44,26 @@
               </a>
 
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-              @role('super_admin')
+              @can('leer usuario')
                 <a class="dropdown-item" href="{{ route('adminPermisos') }}">
                   {{ __('Usuario') }}
                 </a>                            
+              @endcan
+              @can('crear usuario')
                 <a class="dropdown-item" href="{{ route('crearUsuarioView') }}">
                   {{ __('Crear usuario') }}
                 </a>
-              @endrole  
-                         
+              @endcan
+              @can('crear rol')   
+              <a class="dropdown-item" href="{{ route('adminRoles') }}">
+                  {{ __('Roles') }}
+                </a>    
+              @endcan
+              @can('crear rol')   
+              <a class="dropdown-item" href="{{ route('crearRolView') }}">
+                  {{ __('Crear rol') }}
+                </a>    
+              @endcan
                 <a class="dropdown-item" href="{{ route('logout') }}"
                   onclick="event.preventDefault();
                   document.getElementById('logout-form').submit();">

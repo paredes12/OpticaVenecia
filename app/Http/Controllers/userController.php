@@ -69,10 +69,12 @@ class userController extends Controller
     public function editarUsuarioView($id)
     {
         $roles=roles::all(); 
+        $idSelected=model_has_roles::where('model_id',$id)->firstOrFail();        
+        $rolSelected=roles::where('id',$idSelected->role_id)->firstOrFail();
         $usuario=new user;            
         $usuario=DB::table('users')->where('id',$id)->first();
-        return view('layouts.crudUsuario.editarUsuario',compact('usuario','roles'));
-       //return $usuario->id." ".$usuario->name;
+        return view('layouts.crudUsuario.editarUsuario',compact('usuario','roles','rolSelected'));
+        //return $rolSelected;
     }
     public function editarUsuario(Request $request, $id)
     {

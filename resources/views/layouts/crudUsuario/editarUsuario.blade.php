@@ -55,7 +55,11 @@
                           <div class="form-group">                              
                               <select class="form-control" name="role_id" id="exampleFormControlSelect2">
                                 @foreach($roles as $row)
+                                  @if($row->id==$rolSelected->id)
+                                  <option selected value="{{$row->id}}">{{$row->name}}</option>
+                                  @else
                                   <option value="{{$row->id}}">{{$row->name}}</option>
+                                  @endif                                  
                                 @endforeach
                               </select>
                               <div>

@@ -40,7 +40,7 @@
                                 @endforeach
                               </select>
                               <div>
-                              <a href="{{ route('adminPermisos') }}">Administrar permisos</a>
+                              
                             </div>
                           </div>
                           </div>

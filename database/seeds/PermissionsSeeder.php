@@ -16,33 +16,32 @@ class PermissionsSeeder extends Seeder
     public function run()
     {
         $permissions_array = [];
-        array_push($permissions_array, Permission::create(['name' => 'create_user']));
-        array_push($permissions_array, Permission::create(['name' => 'edit_user']));
-        array_push($permissions_array, Permission::create(['name' => 'delete_user']));
-        array_push($permissions_array, Permission::create(['name' => 'read_user']));
-        $sellerPermission = Permission::create(['name' => 'read_user']);
-        array_push($permissions_array, $sellerPermission);
-        //$superAdminRole = Role::create(['name' => 'super_admin']);
-        //$superAdminRole->syncPermissions($permissions_array);
-        $sellerRole = Role::create(['name' => 'seller_user']);
-        $sellerRole->givePermissionTo($sellerPermission);
+        array_push($permissions_array, Permission::create(['name' => 'crear usuario']));
+        array_push($permissions_array, Permission::create(['name' => 'editar usuario']));
+        array_push($permissions_array, Permission::create(['name' => 'eliminar usuario']));
+        array_push($permissions_array, Permission::create(['name' => 'leer usuario']));
+        //$sellerPermission = Permission::create(['name' => 'leer usuario']);
+        //array_push($permissions_array, $sellerPermission);
+        $superAdminRole = Role::create(['name' => 'Administrador']);
+        $superAdminRole->syncPermissions($permissions_array);
+       //$sellerRole = Role::create(['name' => 'Vendedor']);
+        //$sellerRole->givePermissionTo($sellerPermission);
 
-
-       /* $userSuperAdmin = User::create([
+       $userSuperAdmin = User::create([
             'name' => 'admin',
             'email' => 'admin@gmail.com',
             'password' => Hash::make('admin'),
         ]);
         //assign role
-        $userSuperAdmin->assignRole('super_admin'); */
+        $userSuperAdmin->assignRole('Administrador'); 
         //creando otro usuario
-
+/*
         $sellerUser = User::create([
-            'name' => 'seller',
+            'name' => 'vendedor',
             'email' => 'seller@gmail.com',
             'password' => Hash::make('seller'),
         ]);
         //assign role
-        $sellerUser->assignRole('seller_user'); 
+        $sellerUser->assignRole('Vendedor'); */
     }
 }
