@@ -4,7 +4,7 @@
 <div class="container-fluid">
   <div class="row">
     
-    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse" style="position:relative; top:0; left:0;">
       <div class="sidebar-sticky pt-3">
         <ul class="nav flex-column">
           <li class="nav-item">
@@ -50,11 +50,16 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="layers"></span>
-              Planilla
-            </a>
-          </li>
+                    <a href="#planillaSubMenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="margin-left: 17px;">Pago</a>
+                    <ul class="collapse list-unstyled" id="planillaSubMenu">
+                        <li>
+                            <a href="#" style="margin-left: 60px;">Planilla</a>
+                        </li>
+                        <li>
+                            <a href="#" style="margin-left: 60px;">Comision</a>
+                        </li>                        
+                    </ul>
+                </li>
           <li class="nav-item">
             <a class="nav-link" href="#">
               <span data-feather="layers"></span>
@@ -67,9 +72,9 @@
       </div>
     </nav>  
     <div>
-    
-    @yield('contenido')
-    </main>
+      <main role="main" >
+        @yield('contenido')
+      </main>
     </div>  
   </div>
 </div>
