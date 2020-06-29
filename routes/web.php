@@ -26,9 +26,6 @@ Route::get('/', 'HomeController@index')->name('home');
 //Rutas de ADMINISTRADOR
 //usuarios CRUD
 
-Route::group(['middleware' => ['role:Administrador']], function () {    
-                  
-});
 Route::group(['middelware'=>['can:crear usuario']],function(){
     Route::get('/crearUsuario','userController@crearUsuarioView')->name('crearUsuarioView');
     Route::post('/createUser','userController@crearUsuario')->name('crearUsuario');
@@ -64,16 +61,3 @@ Route::group(['middleware' => ['can:leer rol']], function () {
     Route::get('/adminRoles','RolController@adminRoles')->name('adminRoles');   
 });
 
-//RUTAS ADMINISTRADOR
-//roles CRUD
-
-//RUTAS ADMINISTRADOR 
-//permiso CRUD
-
-/*
- //request crud roles
- Route::group(['middleware' => ['role:super_admin']], function () { 
-    Route::get('/eliminarRole','RolController@eliminarRole')->name('eliminarRole');
-    Route::post('/createRol','RolController@crearRole')->name('crearRole');
-    Route::post('/editRol/{id}','RolController@editarRole')->name('editarRol');
-});*/
