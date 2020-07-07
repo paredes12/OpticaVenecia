@@ -9,5 +9,3 @@ Route::group(['middelware'=>['can:editar empleado']],function(){
 Route::group(['middelware'=>['can:eliminar empleado']],function(){
     Route::post('/eliminarEmpleado/{id}','EmpleadoController@eliminarEmpleado')->name('eliminarEmpleadoView');   
 });
-
-

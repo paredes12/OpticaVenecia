@@ -15,22 +15,21 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-              <a href="#planillaSubMenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" >Clientes</a>
+            <svg xmlns="http://www.w3.org/2000/svg" style="margin-left:17px" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+              <a href="#clienteSubMenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" >Clientes</a>
                     
-                    <ul class="collapse list-unstyled" id="planillaSubMenu">
+                    <ul class="collapse list-unstyled" id="clienteSubMenu">
                         <li>
-                            <a href="{{route('empleados')}}" style="margin-left: 30px;">Buscar cliente</a>
+                            <a href="{{route('clientes')}}" style="margin-left: 60px;">Buscar</a>
                         </li>
                         <li>
-                            <a href="#" style="margin-left: 30px;">Crear cliente</a>
+                            <a href="#" style="margin-left: 60px;">Crear</a>
                         </li>
                         <li>
-                            <a href="#" style="margin-left: 30px;">Editar cliente</a>
+                            <a href="#" style="margin-left: 60px;">Editar</a>
                         </li>      
                         <li>
-                            <a href="#" style="margin-left: 30px;">Eliminar cliente</a>
+                            <a href="#" style="margin-left: 60px;">Eliminar</a>
                         </li>                      
                     </ul>
             </a>
