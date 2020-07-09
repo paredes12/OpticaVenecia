@@ -11,8 +11,8 @@
     <div class="row justify-content-center" style="margin-left: 150px;width:900px">
         <div class="col-md-10">
             <div class="card">
-            <form method="POST"  action="{{route('crearCliente')}}">
-                <div class="card-header">{{ __('Crear cliente') }}</div>
+            <form method="POST"  action="{{route('editarCliente',['id'=>$clientes->id])}}">
+                <div class="card-header">{{ __('Editar cliente') }}</div>
 
                   <div class="card-body">                    
                         @csrf
@@ -25,7 +25,7 @@
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nombre') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text"  class="form-control @error('name') is-invalid @enderror" name="nombre_cliente" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                <input id="name" type="text" value="{{$clientes->nombre_cliente}}" class="form-control @error('name') is-invalid @enderror" name="nombre_cliente" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -39,7 +39,7 @@
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Apellido') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text"  class="form-control @error('name') is-invalid @enderror" name="apellido_cliente" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                <input id="name" type="text" value="{{$clientes->apellido_cliente}}" class="form-control @error('name') is-invalid @enderror" name="apellido_cliente" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -54,7 +54,7 @@
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('DUI') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text"  class="form-control @error('name') is-invalid @enderror" name="dui_cliente" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                <input id="name" type="text" value="{{$clientes->dui_cliente}}" class="form-control @error('name') is-invalid @enderror" name="dui_cliente" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -69,7 +69,7 @@
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('NIT') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text"  class="form-control @error('name') is-invalid @enderror" name="nit_cliente" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                <input id="name" type="text" value="{{$clientes->nit_cliente}}" class="form-control @error('name') is-invalid @enderror" name="nit_cliente" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -83,7 +83,7 @@
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Teléfono') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="telefono_cliente" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                <input id="name" type="text" value="{{$clientes->telefono_cliente}}" class="form-control @error('name') is-invalid @enderror" name="telefono_cliente" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -97,14 +97,14 @@
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Lugar de Trabajo') }}</label>
 
-                            <div class="col-md-6">                             
-                            <div class="form-group">                              
-                              <select class="form-control" name="lugar_de_trabajo_id" id="exampleFormControlSelect2">
-                                @foreach($lugares as $row)
-                                  <option value="{{$row->id}}">{{$row->nombre_empresa}}</option>
-                                @endforeach
-                              </select>
-                              <div>
+                            <div class="col-md-6">
+                                <input id="name" type="text" value="{{$clientes->lugar_de_trabajo_id}}" class="form-control @error('name') is-invalid @enderror" name="lugar_de_trabajo_id" value="{{ old('name') }}" required autocomplete="name" autofocus>
+
+                                @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                         </div>                
                                            
@@ -119,7 +119,7 @@
                                 }
                                 </script>
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Crear') }}
+                                    {{ __('Actualizar') }}
                                 </button>                                
                             </div>  
                         </div>

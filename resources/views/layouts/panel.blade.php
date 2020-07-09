@@ -23,13 +23,7 @@
                             <a href="{{route('clientes')}}" style="margin-left: 60px;">Buscar</a>
                         </li>
                         <li>
-                            <a href="#" style="margin-left: 60px;">Crear</a>
-                        </li>
-                        <li>
-                            <a href="#" style="margin-left: 60px;">Editar</a>
-                        </li>      
-                        <li>
-                            <a href="#" style="margin-left: 60px;">Eliminar</a>
+                            <a href="{{route('crearClienteView')}}" style="margin-left: 60px;">Crear</a>
                         </li>                      
                     </ul>
             </a>
