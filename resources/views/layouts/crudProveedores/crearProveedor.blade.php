@@ -11,8 +11,8 @@
     <div class="row justify-content-center" style="margin-left: 150px;width:900px">
         <div class="col-md-10">
             <div class="card">
-            <form method="POST"  action="{{route('editarCliente',['id'=>$clientes->id])}}">
-                <div class="card-header">{{ __('Editar cliente') }}</div>
+            <form method="POST"  action="{{route('crearProveedor')}}">
+                <div class="card-header">{{ __('Crear Proveedor') }}</div>
 
                   <div class="card-body">                    
                         @csrf
@@ -22,10 +22,10 @@
                           </div>
                         @endif
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nombre') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Proveedor') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" value="{{$clientes->nombre_cliente}}" class="form-control @error('name') is-invalid @enderror" name="nombre_cliente" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                <input id="name" type="text"  class="form-control @error('name') is-invalid @enderror" name="proveedor" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -36,10 +36,10 @@
                             </div>
 
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Apellido') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Registro') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" value="{{$clientes->apellido_cliente}}" class="form-control @error('name') is-invalid @enderror" name="apellido_cliente" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                <input id="name" type="text"  class="form-control @error('name') is-invalid @enderror" name="registro_proveedor" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -51,10 +51,10 @@
 
 
                             <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('DUI') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Correo') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" value="{{$clientes->dui_cliente}}" class="form-control @error('name') is-invalid @enderror" name="dui_cliente" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                <input id="name" type="text"  class="form-control @error('name') is-invalid @enderror" name="correo_proveedor" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -66,10 +66,10 @@
                         
 
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('NIT') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Dirección') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" value="{{$clientes->nit_cliente}}" class="form-control @error('name') is-invalid @enderror" name="nit_cliente" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                <input id="name" type="text"  class="form-control @error('name') is-invalid @enderror" name="direccion_proveedor" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -77,35 +77,22 @@
                                     </span>
                                 @enderror
                             </div>
-                            </div>
-                       
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Teléfono') }}</label>
+                        </div>
 
-                            <div class="col-md-6">
-                                <input id="name" type="text" value="{{$clientes->telefono_cliente}}" class="form-control @error('name') is-invalid @enderror" name="telefono_cliente" value="{{ old('name') }}" required autocomplete="name" autofocus>
-
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                            </div>
                         
 
-                            <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Lugar de Trabajo') }}</label>
+                        <div class="form-group row">
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('País') }}</label>
 
                             <div class="col-md-6">                             
                             <div class="form-group">                              
-                              <select name="lugar_de_trabajo_id" id="exampleFormControlSelect2" class="form-control @error('name') is-invalid @enderror" name="telefono_cliente" required autocomplete="name" autofocus>>
-                                @foreach($lugares as $row)
-                                  <option value="{{$row->id}}">{{$row->nombre_empresa}}</option>
+                              <select class="form-control" name="pais_id" id="exampleFormControlSelect2">
+                                @foreach($paises as $row)
+                                  <option value="{{$row->id}}">{{$row->nombre_pais}}</option>
                                 @endforeach
                               </select>
                               <div>
-                              <a href="{{ route('empresas') }}">Administrar Lugar de Trabajo</a>
+                              <a href="{{ route('paises') }}">Añadir un país</a>
                             </div>
                               <div>
                             </div>
@@ -122,7 +109,7 @@
                                 }
                                 </script>
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Actualizar') }}
+                                    {{ __('Crear') }}
                                 </button>                                
                             </div>  
                         </div>

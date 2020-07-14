@@ -29,10 +29,16 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>
-              <span data-feather="shopping-cart"></span>
-              Proveedores
+            <svg xmlns="http://www.w3.org/2000/svg" style="margin-left:17px" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>
+              <a href="#proveedoresSubMenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" >Proveedores</a>     
+                    <ul class="collapse list-unstyled" id="proveedoresSubMenu">
+                        <li>
+                            <a href="{{route('proveedores')}}" style="margin-left: 60px;">Buscar</a>
+                        </li>
+                        <li>
+                            <a href="{{route('crearProveedorView')}}" style="margin-left: 60px;">Crear</a>
+                        </li>                      
+                    </ul>
             </a>
           </li>
           <li class="nav-item">

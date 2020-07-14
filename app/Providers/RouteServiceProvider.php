@@ -51,6 +51,10 @@ class RouteServiceProvider extends ServiceProvider
         $this->mapClienteRoutes();
 
         $this->mapLugarDeTrabajoRoutes();
+
+        $this->mapProveedoresRoutes();
+
+        $this->mapPaisRoutes();
         //
     }
 
@@ -99,5 +103,17 @@ class RouteServiceProvider extends ServiceProvider
         Route::middleware('web')
              ->namespace('App\Http\Controllers')
              ->group(base_path('routes/routeLugarDeTrabajo.php'));
+    }
+    protected function mapProveedoresRoutes()
+    {
+        Route::middleware('web')
+             ->namespace('App\Http\Controllers')
+             ->group(base_path('routes/routeProveedores.php'));
+    }
+    protected function mapPaisRoutes()
+    {
+        Route::middleware('web')
+             ->namespace('App\Http\Controllers')
+             ->group(base_path('routes/routePais.php'));
     }
 }

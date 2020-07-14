@@ -69,8 +69,9 @@ class ClienteController extends Controller
 
     public function editarClienteView($id){       
 
-        $clientes=cliente::where('id',$id)->firstOrFail();                               
-        return view('layouts.crudCliente.editarCliente',compact('clientes'));
+        $clientes=cliente::where('id',$id)->firstOrFail();
+        $lugares = lugar::all();                               
+        return view('layouts.crudCliente.editarCliente',compact('clientes','lugares'));
         //return $usuariosTomados;
         
     }

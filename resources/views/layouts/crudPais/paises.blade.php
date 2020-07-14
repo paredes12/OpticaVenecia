@@ -11,8 +11,8 @@
                     {{session('mensaje')}}
                 </div>
             @endif
-            <div class="card-header">{{ __('Empresas') }}
-                        <a style="color: rgb(255, 255, 255);width: 100px;text-align: center;margin-left: 600px;" onClick="location.href='{{route('crearLugarDeTrabajoView')}}'" class="btn btn-primary">
+            <div class="card-header">{{ __('Paises') }}
+                        <a style="color: rgb(255, 255, 255);width: 100px;text-align: center;margin-left: 600px;" onClick="location.href='{{route('crearPaisView')}}'" class="btn btn-primary">
                             {{ __('Añadir') }}
                         </a> 
                     </div>
@@ -22,27 +22,21 @@
                         <tr>
                         <th scope="col">id</th>
                         <th scope="col">Nombre</th>
-                        <th scope="col">Jefe</th>
-                        <th scope="col">Teléfono</th>                        
-                        <th scope="col">Cargo</th>
                         <th></th>
                         <th></th>
                         </tr>
                     </thead>
                     <tbody>
                         
-                        @foreach($lugares as $row)
+                        @foreach($paises as $row)
                             <tr>
                             <th scope="row">{{$row->id}}</th>
-                            <td>{{$row->nombre_empresa}}</td>
-                            <td>{{$row->jefe_cliente}}</td>
-                            <td>{{$row->telefono_empresa}}</td>
-                            <td>{{$row->cargo_cliente}}</td>
-                            @can('editar lugar de trabajo')
-                            <td><button name="id" type="submit" value="{{$row->id}}" onClick="location.href='{{route('editarLugarDeTrabajoView',['id'=>$row->id])}}'" class="btn btn-primary" >Editar</button></td>    
+                            <td>{{$row->nombre_pais}}</td>
+                            @can('editar pais')
+                            <td><button name="id" type="submit" value="{{$row->id}}" onClick="location.href='{{route('editarPaisView',['id'=>$row->id])}}'" class="btn btn-primary" >Editar</button></td>    
                             @endcan
-                            @can('eliminar lugar de trabajo')
-                            <td><button name="id" type="submit" value="{{$row->id}}" class="btn btn-danger" onClick="location.href='{{route('eliminarLugarDeTrabajoView',['id'=>$row->id])}}'" onClick="return confirm('¿Esta seguro de que desea eliminar este lugar de trabajo?')">Eliminar</button></td> 
+                            @can('eliminar pais')
+                            <td><button name="id" type="submit" value="{{$row->id}}" class="btn btn-danger" onClick="location.href='{{route('eliminarPaisView',['id'=>$row->id])}}'" onClick="return confirm('¿Esta seguro de que desea eliminar este país?')">Eliminar</button></td> 
                             @endcan
                         </tr>
                         @endforeach      
