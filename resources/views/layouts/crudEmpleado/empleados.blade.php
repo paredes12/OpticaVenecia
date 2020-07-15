@@ -11,7 +11,11 @@
         <div class="col-md-8">
             <div class="card">
             
-                <div class="card-header">{{ __('Empleados') }}</div>                
+                <div class="card-header">{{ __('Empleados') }}
+                        <a style="color: rgb(255, 255, 255);width: 100px;text-align: center;margin-left: 350px;" onClick="location.href='{{route('crearEmpleadoView')}}'" class="btn btn-primary">
+                            {{ __('Añadir') }}
+                        </a>
+                </div>                
                     <table class="table">
                     <thead  style="background-color: #1166bb;color: #ffff;" >
                         <tr>
@@ -36,9 +40,9 @@
                             @can('editar empleado')
                             <td><button name="id" type="submit" value="{{$row->id}}" class="btn btn-primary" onClick="location.href='{{route('editarEmpleadoView',['id'=>$row->id])}}'">Editar</button></td>    
                             @endcan
-                            @can('eliminar empleado')
+                            <!--@can('eliminar empleado')
                             <td><button name="id" type="submit" value="{{$row->id}}" class="btn btn-danger" onClick="location.href='{{route('eliminarEmpleadoView',['id'=>$row->id])}}'" onClick="return confirm('¿Esta seguro de que desea desactivar este usuario?')">Eliminar</button></td> 
-                            @endcan
+                            @endcan-->
                         </tr>
                         @endforeach      
                         

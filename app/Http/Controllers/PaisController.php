@@ -21,7 +21,7 @@ class PaisController extends Controller
         
     }
 
-    //Crear pais De Trabajo
+    //Crear pais
     public function crearPais(Request $request)
     {
                 $nuevopais = new pais;

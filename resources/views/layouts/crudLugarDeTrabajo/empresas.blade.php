@@ -41,9 +41,9 @@
                             @can('editar lugar de trabajo')
                             <td><button name="id" type="submit" value="{{$row->id}}" onClick="location.href='{{route('editarLugarDeTrabajoView',['id'=>$row->id])}}'" class="btn btn-primary" >Editar</button></td>    
                             @endcan
-                            @can('eliminar lugar de trabajo')
+                            <!--@can('eliminar lugar de trabajo')
                             <td><button name="id" type="submit" value="{{$row->id}}" class="btn btn-danger" onClick="location.href='{{route('eliminarLugarDeTrabajoView',['id'=>$row->id])}}'" onClick="return confirm('¿Esta seguro de que desea eliminar este lugar de trabajo?')">Eliminar</button></td> 
-                            @endcan
+                            @endcan-->
                         </tr>
                         @endforeach      
                         

@@ -3,7 +3,7 @@
 @section('contenido')
 
 <div class="container" >
-    <div class="row justify-content-center" style="margin-left: 150px;width:1300px">
+    <div class="row justify-content-center" style="margin-left: 150px;width:1100px">
         <div class="col-md-8">
             <div class="card">
             @if(session('mensaje'))
@@ -12,7 +12,7 @@
                 </div>
             @endif
             <div class="card-header">{{ __('Paises') }}
-                        <a style="color: rgb(255, 255, 255);width: 100px;text-align: center;margin-left: 600px;" onClick="location.href='{{route('crearPaisView')}}'" class="btn btn-primary">
+                        <a style="color: rgb(255, 255, 255);width: 100px;text-align: center;margin-left: 400px;" onClick="location.href='{{route('crearPaisView')}}'" class="btn btn-primary">
                             {{ __('Añadir') }}
                         </a> 
                     </div>
@@ -23,7 +23,6 @@
                         <th scope="col">id</th>
                         <th scope="col">Nombre</th>
                         <th></th>
-                        <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -33,11 +32,11 @@
                             <th scope="row">{{$row->id}}</th>
                             <td>{{$row->nombre_pais}}</td>
                             @can('editar pais')
-                            <td><button name="id" type="submit" value="{{$row->id}}" onClick="location.href='{{route('editarPaisView',['id'=>$row->id])}}'" class="btn btn-primary" >Editar</button></td>    
+                            <td><button name="id" style="margin-left:270px" type="submit" value="{{$row->id}}" onClick="location.href='{{route('editarPaisView',['id'=>$row->id])}}'" class="btn btn-primary" >Editar</button></td>    
                             @endcan
-                            @can('eliminar pais')
+                            <!--@can('eliminar pais')
                             <td><button name="id" type="submit" value="{{$row->id}}" class="btn btn-danger" onClick="location.href='{{route('eliminarPaisView',['id'=>$row->id])}}'" onClick="return confirm('¿Esta seguro de que desea eliminar este país?')">Eliminar</button></td> 
-                            @endcan
+                            @endcan-->
                         </tr>
                         @endforeach      
                         
