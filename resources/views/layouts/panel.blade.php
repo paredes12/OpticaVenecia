@@ -112,7 +112,7 @@
                             <a href="{{route('empleados')}}" style="margin-left: 60px;">Empleados</a>
                         </li>
                         <li>
-                            <a href="#" style="margin-left: 60px;">Planilla</a>
+                            <a href="{{route('planilla')}}" style="margin-left: 60px;">Planilla</a>
                         </li>
                         <li>
                             <a href="#" style="margin-left: 60px;">Comision</a>

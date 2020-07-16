@@ -53,6 +53,8 @@ class PermissionsSeeder extends Seeder
         array_push($permissions_array, Permission::create(['name' => 'leer pais']));
         array_push($permissions_array, Permission::create(['name' => 'editar pais']));
         array_push($permissions_array, Permission::create(['name' => 'eliminar pais']));
+
+        array_push($permissions_array, Permission::create(['name' => 'generar planilla']));
         //$sellerPermission = Permission::create(['name' => 'leer usuario']);
         //array_push($permissions_array, $sellerPermission);
         $superAdminRole = Role::create(['name' => 'Administrador']);

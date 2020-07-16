@@ -55,6 +55,8 @@ class RouteServiceProvider extends ServiceProvider
         $this->mapProveedoresRoutes();
 
         $this->mapPaisRoutes();
+
+        $this->mapPlanillaRoutes();
         //
     }
 
@@ -115,5 +117,11 @@ class RouteServiceProvider extends ServiceProvider
         Route::middleware('web')
              ->namespace('App\Http\Controllers')
              ->group(base_path('routes/routePais.php'));
+    }
+    protected function mapPlanillaRoutes()
+    {
+        Route::middleware('web')
+             ->namespace('App\Http\Controllers')
+             ->group(base_path('routes/routePlanilla.php'));
     }
 }

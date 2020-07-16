@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Empleado as empleado;
 use App\User as user;
 
+
 class EmpleadoController extends Controller
 {
     //Formulario de empleados
@@ -34,14 +35,29 @@ class EmpleadoController extends Controller
 
     //Retornar vista crear empleados
     public function crearEmpleadoView(){
-        $usuarios=user::all();                   
+        $usuariosNoDisp=array();
+        $empleados=empleado::select('users.id')->join('users','users.id','=','empleado.user_id')->get();
+        foreach($empleados as $row){            
+                array_push($usuariosNoDisp,$row->id);               
+        }        
+        $usuarios=user::whereNotIn('id',$usuariosNoDisp)->get(); 
+                          
         return view('layouts.crudEmpleado.crearEmpleado',compact('usuarios'));
         //return(compact('usuarios'));
     }
 
     public function editarEmpleadoView($id){      
         $empleadoEditado=empleado::where('id',$id)->firstOrFail();
-        $usuarios=user::all();                              
+        $iduser=$empleadoEditado->user_id;
+        $usuariosNoDisp=array();
+        $empleados=empleado::select('users.id')->join('users','users.id','=','empleado.user_id')->get();
+        foreach($empleados as $row){
+            if(!($row->id==$iduser)){
+                array_push($usuariosNoDisp,$row->id);
+            }       
+        }        
+        $usuarios=user::whereNotIn('id',$usuariosNoDisp)->get(); 
+        //return $usuarios;                             
         return view('layouts.crudEmpleado.editarEmpleado',compact('empleadoEditado','usuarios'));
         
     }
