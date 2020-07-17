@@ -1,7 +1,7 @@
 @extends('layouts.panel')
 @section('contenido')
 <div class="table">
-  <table  class="table table-bordered">
+  <table style="margin-left: 215px;width:100%;" class="table table-bordered">
     <thead>
       <tr class="table-info">
         <th style="text-align: center;" scope="col">Optica Venecia</th>

@@ -21,6 +21,8 @@ class Planilla extends Migration
             $table->float('prestamo_planilla');
             $table->float('bono_venta_planilla');
             $table->float('vacacion_anual');
+            $table->float('total_descuento');
+            $table->float('total_a_pagar');
             $table->date('fecha_pago_planilla');
             $table->unsignedBigInteger('empleado_id');
             $table->foreign('empleado_id')->references('id')->on('empleado');
