@@ -13,7 +13,7 @@ class RefraccionVisual extends Migration
      */
     public function up()
     {
-        Schema::create('Refraccion_visual', function (Blueprint $table) {
+        Schema::create('refraccion_visual', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->enum('ojo', ['Derecho', 'Izquierdo']);
             $table->string('esfera',16);
@@ -22,7 +22,7 @@ class RefraccionVisual extends Migration
             $table->string('adicion',16);
             $table->string('prisma',16);
             $table->unsignedBigInteger('constancia_visual_id');
-            $table->foreign('constancia_visual_id')->references('id')->on('Constancia_visual');
+            $table->foreign('constancia_visual_id')->references('id')->on('constancia_visual');
         });
     }
 
@@ -33,6 +33,6 @@ class RefraccionVisual extends Migration
      */
     public function down()
     {
-        Schema::drop('Refraccion_visual');
+        Schema::drop('refraccion_visual');
     }
 }

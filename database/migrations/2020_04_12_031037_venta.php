@@ -13,13 +13,13 @@ class Venta extends Migration
      */
     public function up()
     {
-        Schema::create('Venta',function(Blueprint $table){
+        Schema::create('venta',function(Blueprint $table){
             $table->bigIncrements('id');
             $table->date('fecha_venta');       
             $table->unsignedBigInteger('empleado_id');
-            $table->foreign('empleado_id')->references('id')->on('Empleado'); 
+            $table->foreign('empleado_id')->references('id')->on('empleado'); 
             $table->unsignedBigInteger('cita_entrega_lente_id');
-            $table->foreign('cita_entrega_lente_id')->references('id')->on('Cita_entrega_lente');
+            $table->foreign('cita_entrega_lente_id')->references('id')->on('cita_entrega_lente');
         });
     }
 
@@ -30,6 +30,6 @@ class Venta extends Migration
      */
     public function down()
     {
-        Schema::drop('Venta');
+        Schema::drop('venta');
     }
 }

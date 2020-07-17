@@ -13,7 +13,7 @@ class ExpedienteCliente extends Migration
      */
     public function up()
     {
-        Schema::create('Expediente_cliente', function (Blueprint $table) {
+        Schema::create('expediente_cliente', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('edad_expediente_cliente');
             $table->enum('sexo_expediente_cliente', ['Masculino', 'Femenino']);
@@ -30,7 +30,7 @@ class ExpedienteCliente extends Migration
             $table->tinyInteger('cel_exp');
             $table->string('observacion_exp',100);
             $table->unsignedBigInteger('cliente_id');
-            $table->foreign('cliente_id')->references('id')->on('Cliente');
+            $table->foreign('cliente_id')->references('id')->on('cliente');
         });
     }
 
@@ -41,6 +41,6 @@ class ExpedienteCliente extends Migration
      */
     public function down()
     {
-        Schema::drop('Expediente_cliente');
+        Schema::drop('expediente_cliente');
     }
 }

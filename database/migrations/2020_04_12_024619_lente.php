@@ -13,13 +13,13 @@ class Lente extends Migration
      */
     public function up()
     {
-        Schema::create('Lente', function (Blueprint $table) {
+        Schema::create('lente', function (Blueprint $table) {
             $table->unsignedBigInteger('material_id');
-            $table->foreign('material_id')->references('id')->on('Material');
+            $table->foreign('material_id')->references('id')->on('material');
             $table->unsignedBigInteger('tipo_lente_id');
-            $table->foreign('tipo_lente_id')->references('id')->on('Tipo_lente');
+            $table->foreign('tipo_lente_id')->references('id')->on('tipo_lente');
             $table->unsignedBigInteger('proteccion_id');
-            $table->foreign('proteccion_id')->references('id')->on('Proteccion');
+            $table->foreign('proteccion_id')->references('id')->on('proteccion');
         });
         
     }
@@ -31,6 +31,6 @@ class Lente extends Migration
      */
     public function down()
     {
-        Schema::drop('Lente');
+        Schema::drop('lente');
     }
 }

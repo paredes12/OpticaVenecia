@@ -13,11 +13,11 @@ class PadecimientoClienteExpedienteCliente extends Migration
      */
     public function up()
     {
-        Schema::create('Padecimiento_c_Expediente_c',function(Blueprint $table){
+        Schema::create('padecimiento_c_Expediente_c',function(Blueprint $table){
             $table->unsignedBigInteger('padecimiento_cliente_id');
-            $table->foreign('padecimiento_cliente_id')->references('id')->on('Padecimiento_cliente');
+            $table->foreign('padecimiento_cliente_id')->references('id')->on('padecimiento_cliente');
             $table->unsignedBigInteger('expediente_cliente_id');
-            $table->foreign('expediente_cliente_id')->references('id')->on('Expediente_cliente');
+            $table->foreign('expediente_cliente_id')->references('id')->on('expediente_cliente');
         });
     }
 
@@ -28,6 +28,6 @@ class PadecimientoClienteExpedienteCliente extends Migration
      */
     public function down()
     {
-        Schema::drop('Padecimiento_cliente_Expediente_cliente');
+        Schema::drop('padecimiento_cliente_Expediente_cliente');
     }
 }

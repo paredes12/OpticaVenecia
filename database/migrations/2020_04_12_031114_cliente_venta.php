@@ -13,13 +13,13 @@ class ClienteVenta extends Migration
      */
     public function up()
     {
-        Schema::create('Cliente_venta',function(Blueprint $table){
+        Schema::create('cliente_venta',function(Blueprint $table){
             $table->unsignedBigInteger('venta_id');
-            $table->foreign('venta_id')->references('id')->on('Venta');
+            $table->foreign('venta_id')->references('id')->on('venta');
             $table->unsignedBigInteger('cliente_id');
-            $table->foreign('cliente_id')->references('id')->on('Cliente');
+            $table->foreign('cliente_id')->references('id')->on('cliente');
             $table->unsignedBigInteger('credito_id');
-            $table->foreign('credito_id')->references('id')->on('Credito');
+            $table->foreign('credito_id')->references('id')->on('credito');
         });
     }
 
@@ -30,6 +30,6 @@ class ClienteVenta extends Migration
      */
     public function down()
     {
-        Schema::drop('Cliente_venta');
+        Schema::drop('cliente_venta');
     }
 }

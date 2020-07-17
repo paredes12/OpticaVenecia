@@ -13,7 +13,7 @@ class Proteccion extends Migration
      */
     public function up()
     {
-        Schema::create('Proteccion', function (Blueprint $table) {
+        Schema::create('proteccion', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nombre_proteccion');
         });
@@ -26,6 +26,6 @@ class Proteccion extends Migration
      */
     public function down()
     {
-        Schema::drop('Proteccion');
+        Schema::drop('proteccion');
     }
 }

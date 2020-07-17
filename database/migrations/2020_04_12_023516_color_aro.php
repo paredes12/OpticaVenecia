@@ -13,7 +13,7 @@ class ColorAro extends Migration
      */
     public function up()
     {
-        Schema::create('Color_aro', function (Blueprint $table) {
+        Schema::create('color_aro', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nombre_color_aro');
         });
@@ -26,6 +26,6 @@ class ColorAro extends Migration
      */
     public function down()
     {
-        Schema::drop('Color_aro');
+        Schema::drop('color_aro');
     }
 }

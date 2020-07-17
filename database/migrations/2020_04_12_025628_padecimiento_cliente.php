@@ -13,7 +13,7 @@ class PadecimientoCliente extends Migration
      */
     public function up()
     {
-        Schema::create('Padecimiento_cliente', function (Blueprint $table) {
+        Schema::create('padecimiento_cliente', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nombre_padecimiento');
         });
@@ -26,6 +26,6 @@ class PadecimientoCliente extends Migration
      */
     public function down()
     {
-        Schema::drop('Padecimiento_cliente');
+        Schema::drop('padecimiento_cliente');
     }
 }

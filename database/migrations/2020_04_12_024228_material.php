@@ -13,7 +13,7 @@ class Material extends Migration
      */
     public function up()
     {
-        Schema::create('Material', function (Blueprint $table) {
+        Schema::create('material', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nombre_material');
         });
@@ -26,6 +26,6 @@ class Material extends Migration
      */
     public function down()
     {
-        Schema::drop('Material');
+        Schema::drop('material');
     }
 }

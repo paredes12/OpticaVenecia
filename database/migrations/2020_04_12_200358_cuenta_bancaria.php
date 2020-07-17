@@ -13,7 +13,7 @@ class CuentaBancaria extends Migration
      */
     public function up()
     {
-        Schema::create('Cuenta_bancaria',function(Blueprint $table){
+        Schema::create('cuenta_bancaria',function(Blueprint $table){
             $table->bigIncrements('id');
             $table->string('nombre_cuenta',32);
             $table->string('apellido_cuenta',32);
@@ -29,6 +29,6 @@ class CuentaBancaria extends Migration
      */
     public function down()
     {
-        Schema::drop('Cuenta_bancaria');
+        Schema::drop('cuenta_bancaria');
     }
 }

@@ -13,7 +13,7 @@ class Cliente extends Migration
      */
     public function up()
     {
-        Schema::create('Cliente', function (Blueprint $table) {
+        Schema::create('cliente', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nombre_cliente',32);
             $table->string('apellido_cliente',32);
@@ -21,7 +21,7 @@ class Cliente extends Migration
             $table->string('nit_cliente',17);
             $table->string('telefono_cliente',17);
             $table->unsignedBigInteger('lugar_de_trabajo_id');
-            $table->foreign('lugar_de_trabajo_id')->references('id')->on('Lugar_De_Trabajo');
+            $table->foreign('lugar_de_trabajo_id')->references('id')->on('lugar_De_Trabajo');
         });
     }
 
@@ -32,6 +32,6 @@ class Cliente extends Migration
      */
     public function down()
     {
-        Schema::drop('Cliente');
+        Schema::drop('cliente');
     }
 }

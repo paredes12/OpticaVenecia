@@ -13,7 +13,7 @@ class Planilla extends Migration
      */
     public function up()
     {
-        Schema::create('Planilla', function(Blueprint $table){
+        Schema::create('planilla', function(Blueprint $table){
             $table->bigIncrements('id');
             $table->float('isss_planilla');
             $table->float('afp_planilla');
@@ -23,7 +23,7 @@ class Planilla extends Migration
             $table->float('vacacion_anual');
             $table->date('fecha_pago_planilla');
             $table->unsignedBigInteger('empleado_id');
-            $table->foreign('empleado_id')->references('id')->on('Empleado');
+            $table->foreign('empleado_id')->references('id')->on('empleado');
         });
     }
 
@@ -34,6 +34,6 @@ class Planilla extends Migration
      */
     public function down()
     {
-        Schema::drop('Planilla');
+        Schema::drop('planilla');
     }
 }

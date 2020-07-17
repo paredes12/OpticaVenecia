@@ -13,11 +13,11 @@ class DefectoVisual extends Migration
      */
     public function up()
     {
-        Schema::create('Defecto_visual', function(Blueprint $table){
+        Schema::create('defecto_visual', function(Blueprint $table){
             $table->bigIncrements('id');
             $table->string('nombre_defecto_visual',16);
             $table->unsignedBigInteger('constancia_visual_id');
-            $table->foreign('constancia_visual_id')->references('id')->on('Constancia_visual');
+            $table->foreign('constancia_visual_id')->references('id')->on('constancia_visual');
         });
     }
 
@@ -28,6 +28,6 @@ class DefectoVisual extends Migration
      */
     public function down()
     {
-        Schema::drop('Defecto_visual');
+        Schema::drop('defecto_visual');
     }
 }

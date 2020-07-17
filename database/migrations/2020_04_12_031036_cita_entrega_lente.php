@@ -13,7 +13,7 @@ class CitaEntregaLente extends Migration
      */
     public function up()
     {
-        Schema::create('Cita_entrega_lente', function(Blueprint $table){
+        Schema::create('cita_entrega_lente', function(Blueprint $table){
             $table->bigIncrements('id');
             $table->date('fecha_entrega_lente');
         });
@@ -26,6 +26,6 @@ class CitaEntregaLente extends Migration
      */
     public function down()
     {
-        Schema::drop('Cita_entrega_lente');
+        Schema::drop('cita_entrega_lente');
     }
 }

@@ -13,7 +13,7 @@ class Departamento extends Migration
      */
     public function up()
     {
-        Schema::create('Departamento', function (Blueprint $table) {
+        Schema::create('departamento', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nombre_departamento');
         });
@@ -26,6 +26,6 @@ class Departamento extends Migration
      */
     public function down()
     {
-        Schema::drop('Departamento');
+        Schema::drop('departamento');
     }
 }
