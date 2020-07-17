@@ -83,28 +83,29 @@
               Constancia visual
             </a>
           </li>
+          @can('generar planilla')                                       
           <li class="nav-item">
-          <svg style="margin-left:17px;" width="18" height="18" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-labelledby="title"
-            aria-describedby="desc" role="img" xmlns:xlink="http://www.w3.org/1999/xlink">    
-            <ellipse data-name="layer2"
-            cx="44" cy="7.1" rx="18" ry="5.1" fill="none" stroke="#202020" stroke-miterlimit="10"
-            stroke-width="2" stroke-linejoin="round" stroke-linecap="round"></ellipse>
-            <path data-name="layer2" d="M26 14.9c0 2.8 8.1 5.1 18 5.1s18-2.3 18-5.1m-36 8c0 2.8 8.1 5.1 18 5.1s18-2.3 18-5.1m-36 8c0 2.8 8.1 5.1 18 5.1s18-2.3 18-5.1M38 43.7c1.9.2 3.9.3 6 .3 9.9 0 18-2.3 18-5.1m-36-2.8V7.5"
-            fill="none" stroke="#202020" stroke-miterlimit="10" stroke-width="2" stroke-linejoin="round"
-            stroke-linecap="round"></path>
-            <path data-name="layer2" d="M62 7.1v39.8c0 2.8-8.1 5.1-18 5.1-2.1 0-4.1-.1-6-.3"
-            fill="none" stroke="#202020" stroke-miterlimit="10" stroke-width="2" stroke-linejoin="round"
-            stroke-linecap="round"></path>
-            <ellipse data-name="layer1" cx="20" cy="40.9" rx="18" ry="5.1"
-            fill="none" stroke="#202020" stroke-miterlimit="10" stroke-width="2" stroke-linejoin="round"
-            stroke-linecap="round"></ellipse>
-            <path data-name="layer1" d="M2 48.9c0 2.8 8 5.1 18 5.1s18-2.3 18-5.1"
-            fill="none" stroke="#202020" stroke-miterlimit="10" stroke-width="2" stroke-linejoin="round"
-            stroke-linecap="round"></path>
-            <path data-name="layer1" d="M38 40.9v16c0 2.8-8.1 5.1-18 5.1S2 59.7 2 56.9V41.3"
-            fill="none" stroke="#202020" stroke-miterlimit="10" stroke-width="2" stroke-linejoin="round"
-            stroke-linecap="round"></path>
-          </svg>
+            <svg style="margin-left:17px;" width="18" height="18" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-labelledby="title"
+              aria-describedby="desc" role="img" xmlns:xlink="http://www.w3.org/1999/xlink">    
+              <ellipse data-name="layer2"
+              cx="44" cy="7.1" rx="18" ry="5.1" fill="none" stroke="#202020" stroke-miterlimit="10"
+              stroke-width="2" stroke-linejoin="round" stroke-linecap="round"></ellipse>
+              <path data-name="layer2" d="M26 14.9c0 2.8 8.1 5.1 18 5.1s18-2.3 18-5.1m-36 8c0 2.8 8.1 5.1 18 5.1s18-2.3 18-5.1m-36 8c0 2.8 8.1 5.1 18 5.1s18-2.3 18-5.1M38 43.7c1.9.2 3.9.3 6 .3 9.9 0 18-2.3 18-5.1m-36-2.8V7.5"
+              fill="none" stroke="#202020" stroke-miterlimit="10" stroke-width="2" stroke-linejoin="round"
+              stroke-linecap="round"></path>
+              <path data-name="layer2" d="M62 7.1v39.8c0 2.8-8.1 5.1-18 5.1-2.1 0-4.1-.1-6-.3"
+              fill="none" stroke="#202020" stroke-miterlimit="10" stroke-width="2" stroke-linejoin="round"
+              stroke-linecap="round"></path>
+              <ellipse data-name="layer1" cx="20" cy="40.9" rx="18" ry="5.1"
+              fill="none" stroke="#202020" stroke-miterlimit="10" stroke-width="2" stroke-linejoin="round"
+              stroke-linecap="round"></ellipse>
+              <path data-name="layer1" d="M2 48.9c0 2.8 8 5.1 18 5.1s18-2.3 18-5.1"
+              fill="none" stroke="#202020" stroke-miterlimit="10" stroke-width="2" stroke-linejoin="round"
+              stroke-linecap="round"></path>
+              <path data-name="layer1" d="M38 40.9v16c0 2.8-8.1 5.1-18 5.1S2 59.7 2 56.9V41.3"
+              fill="none" stroke="#202020" stroke-miterlimit="10" stroke-width="2" stroke-linejoin="round"
+              stroke-linecap="round"></path>
+            </svg>
                     <a href="#planillaSubMenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="margin-left: 2px;">Pago</a>
                     
                     <ul class="collapse list-unstyled" id="planillaSubMenu">
@@ -119,6 +120,7 @@
                         </li>                        
                     </ul>
                 </li>
+          @endcan
           <li class="nav-item">
             <a class="nav-link" href="#">
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
