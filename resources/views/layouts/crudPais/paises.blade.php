@@ -23,6 +23,7 @@
                         <th scope="col">id</th>
                         <th scope="col">Nombre</th>
                         <th></th>
+                        <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -34,9 +35,9 @@
                             @can('editar pais')
                             <td><button name="id" style="margin-left:270px" type="submit" value="{{$row->id}}" onClick="location.href='{{route('editarPaisView',['id'=>$row->id])}}'" class="btn btn-primary" >Editar</button></td>    
                             @endcan
-                            <!--@can('eliminar pais')
+                            @can('eliminar pais')
                             <td><button name="id" type="submit" value="{{$row->id}}" class="btn btn-danger" onClick="location.href='{{route('eliminarPaisView',['id'=>$row->id])}}'" onClick="return confirm('¿Esta seguro de que desea eliminar este país?')">Eliminar</button></td> 
-                            @endcan-->
+                            @endcan
                         </tr>
                         @endforeach      
                         

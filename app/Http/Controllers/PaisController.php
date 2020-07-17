@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Pais as pais;
+use App\Proveedor as proveedor;
+use Illuminate\Support\Str;
 
 class PaisController extends Controller
 {
@@ -45,13 +47,23 @@ class PaisController extends Controller
                 return redirect()->route('paises')->with('mensaje','País Actualizado');   
     }
 
-    //Eliminar pais De Trabajo
+    //Eliminar país
     public function eliminarpaisView($id){       
-
-        $paisEliminado= pais::find($id);       
-        $paisEliminado->delete();     
-           
-        return redirect()->route('empresas')->with('mensaje','pais eliminado');
+        $validar=pais::select('proveedor.proveedor')
+        ->join('proveedor','pais.id','=','proveedor.pais_id')
+        ->where('pais.id',$id)->get();
+        //return $validar;
+        if($validar->isEmpty()){
+            $paisEliminado= pais::find($id);       
+            $paisEliminado->delete();     
+               
+            return redirect()->route('paises')->with('mensaje','El país ha sido eliminado');
+        }
+        else{
+            return redirect()->route('paises')->with('mensaje','El país no puede eliminarse porque está en uso.');
+        }
+        
+        
         
     }
 }

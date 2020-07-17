@@ -14,5 +14,5 @@ Route::group(['middleware'=>['can:editar pais']],function(){
 });
 
 Route::group(['middleware'=>['can:eliminar pais']],function(){
-    Route::post('/eliminarPais/{id}','PaisController@eliminarPais')->name('eliminarPaisView');   
+    Route::get('/eliminarPais/{id}','PaisController@eliminarPaisView')->name('eliminarPaisView');   
 });

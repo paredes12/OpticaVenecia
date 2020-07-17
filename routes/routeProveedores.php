@@ -14,5 +14,5 @@ Route::group(['middleware'=>['can:editar proveedor']],function(){
 });
 
 Route::group(['middleware'=>['can:eliminar proveedor']],function(){
-    Route::post('/eliminarproveedor/{id}','proveedorController@eliminarproveedor')->name('eliminarproveedorView');   
+    Route::get('/eliminarProveedor/{id}','proveedorController@eliminarProveedorView')->name('eliminarProveedorView');   
 });

@@ -64,11 +64,10 @@ class ProveedorController extends Controller
         
     }
 
-    /*public function eliminarClienteView($id){       
-
-        $clientes=cliente::where('id',$id)->firstOrFail();                               
-        return view('layouts.crudCliente.editarCliente',compact('clientes'));
-        //return $usuariosTomados;
-        
-    }*/
+    //Eliminar Proveedor
+    public function eliminarProveedorView($id){       
+        $proveedorEliminado= proveedor::find($id);       
+        $proveedorEliminado->delete();     
+        return redirect()->route('proveedores')->with('mensaje','El proveedor ha sido eliminado');      
+    }
 }
