@@ -60,7 +60,7 @@ class userController extends Controller
         $nuevoRol->model_type=$model_type;
         $nuevoRol->model_id=$model_id;
         $nuevoRol->save();
-        return $nuevoRol->all();
+        //return $nuevoRol->all();
     }
     public function administrarPermisos()
     {   

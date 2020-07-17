@@ -19,7 +19,7 @@ class PlanillaController extends Controller
         $isEmpleado=empleado::all();    
         //return $isEmpleado;            
         if($isEmpleado!='[]'){        
-            if($mytime->isoFormat('D')==15|| $mytime->isoFormat('D')==14 || $mytime->isoFormat('D')==13 ||$mytime->isoFormat('D')==26|| $mytime->isoFormat('D')==27||$mytime->isoFormat('D')==28 || $mytime->isoFormat('D')==29|| $mytime->isoFormat('D')==30){            
+            if($mytime->isoFormat('D')==15|| $mytime->isoFormat('D')==14 || $mytime->isoFormat('D')==13 || $mytime->isoFormat('D')==17 ||$mytime->isoFormat('D')==26|| $mytime->isoFormat('D')==27||$mytime->isoFormat('D')==28 || $mytime->isoFormat('D')==29|| $mytime->isoFormat('D')==30){            
                 $this->generarPlanilla();
                 $empleados=planilla::all();
                 $empleados=$empleados->sortBy('fecha_pago_planilla')->last();     
