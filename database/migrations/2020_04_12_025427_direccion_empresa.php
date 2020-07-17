@@ -19,7 +19,7 @@ class DireccionEmpresa extends Migration
             $table->string('calle_empresa',16);
             $table->string('domicilio_empresa',16);
             $table->unsignedBigInteger('lugar_de_trabajo_id');
-            $table->foreign('lugar_de_trabajo_id')->references('id')->on('lugar_De_Trabajo');
+            $table->foreign('lugar_de_trabajo_id')->references('id')->on('lugar_de_trabajo');
             $table->unsignedBigInteger('municipio_id');
             $table->foreign('municipio_id')->references('id')->on('municipio');
         });
