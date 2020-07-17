@@ -18,7 +18,7 @@ class AnticipoPlanilla extends Migration
             $table->double('anticipo');
             $table->timestamp('fecha_anticipo');
             $table->unsignedBigInteger('empleado_id');
-            $table->foreign('empleado_id')->references('id')->on('Empleado');
+            $table->foreign('empleado_id')->references('id')->on('empleado');
         });
     }
 

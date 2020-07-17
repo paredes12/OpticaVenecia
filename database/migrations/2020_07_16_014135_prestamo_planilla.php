@@ -18,7 +18,7 @@ class PrestamoPlanilla extends Migration
             $table->double('prestamo');
             $table->timestamp('fecha_prestamo');
             $table->unsignedBigInteger('empleado_id');
-            $table->foreign('empleado_id')->references('id')->on('Empleado');
+            $table->foreign('empleado_id')->references('id')->on('empleado');
         });
     }
 
