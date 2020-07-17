@@ -47,6 +47,7 @@ class userController extends Controller
         //$nuevoUsuario->remember_token=$request->remember_token;
         $nuevoUsuario->created_at=$mytime->toDateTimeString();
         $nuevoUsuario->updated_at=$mytime->toDateTimeString();
+        $nuevoUsuario->active=1;
         $nuevoUsuario->save();            
         
         $this->model_has_roles($request->model_id, 'App\User',$nuevoUsuario->id);
