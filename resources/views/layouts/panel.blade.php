@@ -19,12 +19,16 @@
               <a href="#clienteSubMenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" >Clientes</a>
                     
                     <ul class="collapse list-unstyled" id="clienteSubMenu">
+                    @can('leer cliente')
                         <li>
                             <a href="{{route('clientes')}}" style="margin-left: 60px;">Buscar</a>
                         </li>
+                    @endcan
+                    @can('crear cliente')
                         <li>
                             <a href="{{route('crearClienteView')}}" style="margin-left: 60px;">Crear</a>
-                        </li>                      
+                        </li>            
+                    @endcan                          
                     </ul>
             </a>
           </li>
@@ -32,12 +36,16 @@
             <svg xmlns="http://www.w3.org/2000/svg" style="margin-left:17px" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>
               <a href="#proveedoresSubMenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" >Proveedores</a>     
                     <ul class="collapse list-unstyled" id="proveedoresSubMenu">
+                    @can('leer empleado')
                         <li>
                             <a href="{{route('proveedores')}}" style="margin-left: 60px;">Buscar</a>
                         </li>
+                    @endcan
+                    @can('crear empleado')
                         <li>
                             <a href="{{route('crearProveedorView')}}" style="margin-left: 60px;">Crear</a>
-                        </li>                      
+                        </li>           
+                    @endcan           
                     </ul>
             </a>
           </li>
@@ -83,7 +91,7 @@
               Constancia visual
             </a>
           </li>
-          @can('generar planilla')                                       
+                                               
           <li class="nav-item">
             <svg style="margin-left:17px;" width="18" height="18" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-labelledby="title"
               aria-describedby="desc" role="img" xmlns:xlink="http://www.w3.org/1999/xlink">    
@@ -109,18 +117,22 @@
                     <a href="#planillaSubMenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="margin-left: 2px;">Pago</a>
                     
                     <ul class="collapse list-unstyled" id="planillaSubMenu">
+                        @can('leer empleado')
                         <li>
                             <a href="{{route('empleados')}}" style="margin-left: 60px;">Empleados</a>
                         </li>
+                        @endcan
+                        @can('generar planilla')  
                         <li>
                             <a href="{{route('planilla')}}" style="margin-left: 60px;">Planilla</a>
                         </li>
+                        @endcan
                         <li>
                             <a href="#" style="margin-left: 60px;">Comision</a>
                         </li>                        
                     </ul>
                 </li>
-          @endcan
+          
           <li class="nav-item">
             <a class="nav-link" href="#">
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
