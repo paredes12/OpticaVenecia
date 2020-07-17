@@ -15,7 +15,7 @@ class PlanillaController extends Controller
         $mytime = Carbon\Carbon::now();  
         $mytime->setlocale('es');
         $mytime->setTimezone('America/El_Salvador');
-        $fecha=$mytime->isoFormat('D-MMMM-Y');    
+          
         $isEmpleado=empleado::all();    
         //return $isEmpleado;            
         if($isEmpleado!='[]'){        
@@ -26,6 +26,7 @@ class PlanillaController extends Controller
                 $empleado=planilla::where('fecha_pago_planilla',$empleados->fecha_pago_planilla)
                     ->join('empleado','planilla.empleado_id','=','empleado.id')
                     ->get();
+                $fecha=$empleados->fecha_pago_planilla;  
                 return view('layouts.planilla.planilla',compact('fecha','empleado'));             
                 //return $empleado;
             }else{
@@ -36,6 +37,7 @@ class PlanillaController extends Controller
                     $empleado=planilla::where('fecha_pago_planilla',$empleados->fecha_pago_planilla)
                         ->join('empleado','planilla.empleado_id','=','empleado.id')
                         ->get();            
+                    $fecha=$empleados->fecha_pago_planilla;  
                     return view('layouts.planilla.planilla',compact('fecha','empleado'));  
                 } else {
                     return redirect()->route('home')->with('mensaje','Aun no se ha generado una planilla y no es fecha de pago.'); 
