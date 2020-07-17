@@ -19,7 +19,7 @@ class PlanillaController extends Controller
         $isEmpleado=empleado::all();    
         //return $isEmpleado;            
         if($isEmpleado!='[]'){        
-            if($mytime->isoFormat('D')==15|| $mytime->isoFormat('D')==14 || $mytime->isoFormat('D')==13 || $mytime->isoFormat('D')==28 || $mytime->isoFormat('D')==39|| $mytime->isoFormat('D')==30){            
+            if($mytime->isoFormat('D')==15|| $mytime->isoFormat('D')==14 || $mytime->isoFormat('D')==13 ||$mytime->isoFormat('D')==26|| $mytime->isoFormat('D')==27||$mytime->isoFormat('D')==28 || $mytime->isoFormat('D')==29|| $mytime->isoFormat('D')==30){            
                 $this->generarPlanilla();
                 $empleados=planilla::all();
                 $empleados=$empleados->sortBy('fecha_pago_planilla')->last();     
@@ -61,6 +61,9 @@ class PlanillaController extends Controller
         $counter=0;
         $mytime = Carbon\Carbon::now();            
         $mytime->setTimezone('America/El_Salvador');
+        $fecha=$mytime->isoFormat('D'); 
+        $anio=$mytime->isoFormat('Y'); 
+        $mes=$mytime->isoFormat('M'); 
         $empleados=empleado::all();        
         foreach($empleados as $row){
             $registro=new planilla;
@@ -80,27 +83,28 @@ class PlanillaController extends Controller
             $registro->afp_planilla=($row->salario_base)*0.0725;
             $registro->bono_venta_planilla=0;
             $registro->vacacion_anual=0;
-            $registro->fecha_pago_planilla=$mytime;
+            if($fecha<=15){
+                $registro->fecha_pago_planilla=$anio.'-'.$mes.'-'.'15';
+            }else{
+                if($mes==2){
+                    $registro->fecha_pago_planilla=$anio.'-'.$mes.'-'.'28';
+                }
+                else{
+                    $registro->fecha_pago_planilla=$anio.'-'.$mes.'-'.'30';
+                }                
+            }
+            
             $registro->empleado_id=$row->id;
             $registro->total_descuento=$registro->isss_planilla+$registro->afp_planilla+$registro->anticipo_planilla+$registro->prestamo_planilla;
             $registro->total_a_pagar=$row->salario_base-$registro->total_descuento;
             $mytime->setlocale('es');            
-            $fecha=$mytime->isoFormat('Y-M-D'); 
             
-            $planilla=planilla::where('fecha_pago_planilla',$fecha)->where('empleado_id',$registro->empleado_id)->first();            
+            
+            $planilla=planilla::where('fecha_pago_planilla',$registro->fecha_pago_planilla)->where('empleado_id',$registro->empleado_id)->first();            
             if($planilla==''){
                 $registro->save();
             }                                
         }
     }
 
-    public static function isEmpleado(){
-        $isEmpleado=empleado::all();
-        if($isEmpleado==''){
-            return false;
-        }
-        else{
-            return true;
-        }       
-    }
 }
