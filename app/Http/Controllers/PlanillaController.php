@@ -15,26 +15,43 @@ class PlanillaController extends Controller
         $mytime = Carbon\Carbon::now();  
         $mytime->setlocale('es');
         $mytime->setTimezone('America/El_Salvador');
-        $fecha=$mytime->isoFormat('D-MMMM-Y');                    
-        
-        if($mytime->isoFormat('D')==15 || $mytime->isoFormat('D')==30){            
-            $this->generarPlanilla();
-            $empleados=planilla::all();
-            $empleados=$empleados->sortBy('fecha_pago_planilla')->last();     
-            $empleado=planilla::where('fecha_pago_planilla',$empleados->fecha_pago_planilla)
-                ->join('empleado','planilla.empleado_id','=','empleado.id')
-                ->get();
-            return view('layouts.planilla.planilla',compact('fecha','empleado'));             
-            //return $empleado;
-        }else{
-            $empleados=planilla::all();
-            $empleados=$empleados->sortBy('fecha_pago_planilla')->last();     
-            $empleado=planilla::where('fecha_pago_planilla',$empleados->fecha_pago_planilla)
-                ->join('empleado','planilla.empleado_id','=','empleado.id')
-                ->get();            
-            return view('layouts.planilla.planilla',compact('fecha','empleado'));  
+        $fecha=$mytime->isoFormat('D-MMMM-Y');    
+        $isEmpleado=empleado::all();    
+        //return $isEmpleado;            
+        if($isEmpleado!='[]'){        
+            if($mytime->isoFormat('D')==15|| $mytime->isoFormat('D')==14 || $mytime->isoFormat('D')==13 || $mytime->isoFormat('D')==28 || $mytime->isoFormat('D')==39|| $mytime->isoFormat('D')==30){            
+                $this->generarPlanilla();
+                $empleados=planilla::all();
+                $empleados=$empleados->sortBy('fecha_pago_planilla')->last();     
+                $empleado=planilla::where('fecha_pago_planilla',$empleados->fecha_pago_planilla)
+                    ->join('empleado','planilla.empleado_id','=','empleado.id')
+                    ->get();
+                return view('layouts.planilla.planilla',compact('fecha','empleado'));             
+                //return $empleado;
+            }else{
+                $plan=planilla::all();
+                if($plan!='[]') {
+                    $empleados=planilla::all();
+                    $empleados=$empleados->sortBy('fecha_pago_planilla')->last();     
+                    $empleado=planilla::where('fecha_pago_planilla',$empleados->fecha_pago_planilla)
+                        ->join('empleado','planilla.empleado_id','=','empleado.id')
+                        ->get();            
+                    return view('layouts.planilla.planilla',compact('fecha','empleado'));  
+                } else {
+                    return redirect()->route('home')->with('mensaje','Aun no se ha generado una planilla y no es fecha de pago.'); 
+                }
+
+                $empleados=planilla::all();
+                $empleados=$empleados->sortBy('fecha_pago_planilla')->last();     
+                $empleado=planilla::where('fecha_pago_planilla',$empleados->fecha_pago_planilla)
+                    ->join('empleado','planilla.empleado_id','=','empleado.id')
+                    ->get();            
+                return view('layouts.planilla.planilla',compact('fecha','empleado'));  
+            }
         }
-        
+        else{
+            return redirect()->route('home')->with('mensaje','No hay empleados registrados para generar una planilla');   
+        }
        
     }
 
@@ -73,5 +90,15 @@ class PlanillaController extends Controller
                 $registro->save();
             }                                
         }
+    }
+
+    public static function isEmpleado(){
+        $isEmpleado=empleado::all();
+        if($isEmpleado==''){
+            return false;
+        }
+        else{
+            return true;
+        }       
     }
 }
