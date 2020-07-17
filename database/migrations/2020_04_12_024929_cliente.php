@@ -21,7 +21,7 @@ class Cliente extends Migration
             $table->string('nit_cliente',17);
             $table->string('telefono_cliente',17);
             $table->unsignedBigInteger('lugar_de_trabajo_id');
-            $table->foreign('lugar_de_trabajo_id')->references('id')->on('lugar_De_Trabajo');
+            $table->foreign('lugar_de_trabajo_id')->references('id')->on('lugar_de_trabajo');
         });
     }
 
