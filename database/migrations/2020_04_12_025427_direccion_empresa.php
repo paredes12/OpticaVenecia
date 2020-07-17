@@ -13,15 +13,15 @@ class DireccionEmpresa extends Migration
      */
     public function up()
     {
-        Schema::create('Direccion_empresa', function (Blueprint $table) {
+        Schema::create('direccion_empresa', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('colonia_empresa',16);
             $table->string('calle_empresa',16);
             $table->string('domicilio_empresa',16);
             $table->unsignedBigInteger('lugar_de_trabajo_id');
-            $table->foreign('lugar_de_trabajo_id')->references('id')->on('Lugar_De_Trabajo');
+            $table->foreign('lugar_de_trabajo_id')->references('id')->on('lugar_De_Trabajo');
             $table->unsignedBigInteger('municipio_id');
-            $table->foreign('municipio_id')->references('id')->on('Municipio');
+            $table->foreign('municipio_id')->references('id')->on('municipio');
         });
     }
 
@@ -32,6 +32,6 @@ class DireccionEmpresa extends Migration
      */
     public function down()
     {
-        Schema::drop('Direccion_cliente');
+        Schema::drop('direccion_cliente');
     }
 }

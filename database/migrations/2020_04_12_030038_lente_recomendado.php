@@ -13,11 +13,11 @@ class LenteRecomendado extends Migration
      */
     public function up()
     {
-        Schema::create('Lente_recomendado', function(Blueprint $table){
+        Schema::create('lente_recomendado', function(Blueprint $table){
             $table->bigIncrements('id');
             $table->string('nombre_lente_recomendado',32);
             $table->unsignedBigInteger('constancia_visual_id');
-            $table->foreign('constancia_visual_id')->references('id')->on('Constancia_visual');
+            $table->foreign('constancia_visual_id')->references('id')->on('constancia_visual');
         });
     }
 
@@ -28,6 +28,6 @@ class LenteRecomendado extends Migration
      */
     public function down()
     {
-        Schema::drop('Lente_recomendado');
+        Schema::drop('lente_recomendado');
     }
 }

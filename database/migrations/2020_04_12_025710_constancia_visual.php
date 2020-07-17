@@ -13,7 +13,7 @@ class ConstanciaVisual extends Migration
      */
     public function up()
     {
-        Schema::create('Constancia_visual', function (Blueprint $table) {
+        Schema::create('constancia_visual', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('observaciones_constancia_visual',512);            
         });
@@ -26,6 +26,6 @@ class ConstanciaVisual extends Migration
      */
     public function down()
     {
-        Schema::drop('Constancia_visual');
+        Schema::drop('constancia_visual');
     }
 }

@@ -13,11 +13,11 @@ class PermisoRol extends Migration
      */
     public function up()
     {
-        Schema::create('Permiso_rol',function(Blueprint $table){
+        Schema::create('permiso_rol',function(Blueprint $table){
             $table->unsignedBigInteger('permiso_id');
-            $table->foreign('permiso_id')->references('id')->on('Permiso');
+            $table->foreign('permiso_id')->references('id')->on('permiso');
             $table->unsignedBigInteger('rol_id');
-            $table->foreign('rol_id')->references('id')->on('Rol');
+            $table->foreign('rol_id')->references('id')->on('rol');
         });
     }
 
@@ -28,6 +28,6 @@ class PermisoRol extends Migration
      */
     public function down()
     {
-        Schema::drop('Permiso_rol');
+        Schema::drop('permiso_rol');
     }
 }

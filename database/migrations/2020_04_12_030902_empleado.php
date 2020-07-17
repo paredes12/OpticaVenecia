@@ -13,7 +13,7 @@ class Empleado extends Migration
      */
     public function up()
     {
-        Schema::create('Empleado',function(Blueprint $table){
+        Schema::create('empleado',function(Blueprint $table){
             $table->bigIncrements('id');
             $table->string('nombre_empleado',32);
             $table->string('apellido_empleado',32);
@@ -30,6 +30,6 @@ class Empleado extends Migration
      */
     public function down()
     {
-        Schema::drop('Empleado');
+        Schema::drop('empleado');
     }
 }

@@ -13,12 +13,12 @@ class Comision extends Migration
      */
     public function up()
     {
-        Schema::create('Comision',function(Blueprint $table){
+        Schema::create('comision',function(Blueprint $table){
             $table->bigIncrements('id');
             $table->float('monto_comision');
             $table->date('fecha_pago_comision');
             $table->unsignedBigInteger('empleado_id');
-            $table->foreign('empleado_id')->references('id')->on('Empleado');
+            $table->foreign('empleado_id')->references('id')->on('empleado');
         });
     }
 
@@ -29,6 +29,6 @@ class Comision extends Migration
      */
     public function down()
     {
-        Schema::drop('Comision');
+        Schema::drop('comision');
     }
 }

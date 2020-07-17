@@ -13,15 +13,15 @@ class DireccionCliente extends Migration
      */
     public function up()
     {
-        Schema::create('Direccion_cliente', function (Blueprint $table) {
+        Schema::create('direccion_cliente', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('colonia_cliente',16);
             $table->string('calle_cliente',16);
             $table->string('domicilio_cliente',16);
             $table->unsignedBigInteger('cliente_id');
-            $table->foreign('cliente_id')->references('id')->on('Cliente');
+            $table->foreign('cliente_id')->references('id')->on('cliente');
             $table->unsignedBigInteger('municipio_id');
-            $table->foreign('municipio_id')->references('id')->on('Municipio');
+            $table->foreign('municipio_id')->references('id')->on('municipio');
         });
     }
 
@@ -32,6 +32,6 @@ class DireccionCliente extends Migration
      */
     public function down()
     {
-        Schema::drop('Direccion_cliente');
+        Schema::drop('direccion_cliente');
     }
 }

@@ -13,7 +13,7 @@ class Permiso extends Migration
      */
     public function up()
     {
-        Schema::create('Permiso', function (Blueprint $table) {
+        Schema::create('permiso', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nombre_permiso');
         });
@@ -26,6 +26,6 @@ class Permiso extends Migration
      */
     public function down()
     {
-        Schema::drop('Permiso');
+        Schema::drop('permiso');
     }
 }

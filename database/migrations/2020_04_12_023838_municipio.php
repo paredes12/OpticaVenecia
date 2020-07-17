@@ -13,11 +13,11 @@ class Municipio extends Migration
      */
     public function up()
     {
-        Schema::create('Municipio', function (Blueprint $table) {
+        Schema::create('municipio', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nombre_municipio');
             $table->unsignedBigInteger('departamento_id');
-            $table->foreign('departamento_id')->references('id')->on('Departamento');
+            $table->foreign('departamento_id')->references('id')->on('departamento');
         });
     }
 
@@ -28,6 +28,6 @@ class Municipio extends Migration
      */
     public function down()
     {
-        Schema::drop('Municipio');
+        Schema::drop('municipio');
     }
 }
