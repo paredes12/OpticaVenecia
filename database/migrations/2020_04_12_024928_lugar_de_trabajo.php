@@ -13,7 +13,7 @@ class LugarDeTrabajo extends Migration
      */
     public function up()
     {
-        Schema::create('lugar_De_Trabajo', function (Blueprint $table) {
+        Schema::create('lugar_de_trabajo', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nombre_empresa');
             $table->string('jefe_cliente');
@@ -29,6 +29,6 @@ class LugarDeTrabajo extends Migration
      */
     public function down()
     {
-        Schema::drop('lugar_De_Trabajo');
+        Schema::drop('lugar_de_trabajo');
     }
 }
